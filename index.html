@@ -14,12 +14,14 @@
 </head>
 <body>
 <section id="showreel">
+    <h2>Showreel.</h2>
     <video autoplay id="header-video" loop muted>
         <source src="Videos/Showreel.mp4" type="video/mp4">
     </video>
     <img alt="logo" id="logo" src="logo.svg"/>
 </section>
 <section id="portfolio">
+    <h2>Portfolio.</h2>
     <div class="box" id="musikvideos">
         <video class="refV" id="video" muted>
             <source src="Videos/Musikvideos.mp4" type="video/mp4">
@@ -40,8 +42,81 @@
     </div>
 </section>
 <section id="wir sind">
+    <h2>Wir sind.</h2>
+    <div class="box" id="wir sind">
+        <video class="refV" id="video" muted>
+            <source src="Videos/Wir%20sind%20-%20Alle.mp4" type="video/mp4">
+        </video>
+        <div class="grid" id="wir sind - paulo">
+            <video class="refV" id="video" muted>
+                <source src="Videos/Wir%20sind%20-%20Paulo.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="grid" id="wir sind - simon">
+            <video class="refV" id="video" muted>
+                <source src="Videos/Wir%20sind%20-%20Simon.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="grid" id="wir sind - tilman">
+            <video class="refV" id="video" muted>
+                <source src="Videos/Wir%20sind-%20Tilman.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="grid" id="wir sind - Moritz">
+            <video class="refV" id="video" muted>
+                <source src="Videos/Wir%20sind-%20Moritz.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+
 </section>
+
 <section id="narrativ">
+    <h2>Filmemacher!</h2>
+    <div class="box" id="narrativ">
+        <video class="refV" muted>
+            <source src="Videos/Narrativ.mp4" type="video/mp4">
+        </video>
+        <h3>Filme.</h3>
+    </div>
+    <div class="box" id="bts">
+        <video class="refV" muted>
+            <source src="Videos/BTS.mp4" type="video/mp4">
+        </video>
+        <h3>Und wie sie gemacht werden.</h3>
+        <h4>Die geheimen Tipps und Tricks.</h4>
+        <p id="bts">Um mit Bewegtbild zu verzaubern, müssen viele Opfer gebracht werden. Hier mehr dazu.</p>
+        <p id="achja"> Ach ja. Blicke hinter die Kulissen und Technik gibt es hier auch.</p>
+
+        <div class="grid" id="bts- beispiel1">
+            <video class="refV" id="video" muted>
+                <source src="Videos/BTS%-%20Beispiel.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="grid" id="bts- beispiel2">
+            <video class="refV" id="video" muted>
+                <source src="Videos/BTS%-%20Beispiel2.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="grid" id="bts- beispiel3">
+            <video class="refV" id="video" muted>
+                <source src="Videos/BTS%-%20Beispiel3.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+</section>
+<section id="kontakt">
+    <div class="box" id="kontakt">
+        <h4>Wir wollen Sie!</h4>
+        <h5>Melden Sie sich!</h5>
+        <p>Wir sind gerne für Anfragen aller Art und kostenfreien Beratungsgesprächen da. Kontaktieren Sie uns gerne per
+            Mail oder Telefon!</p>
+    </div>
+
+</section>
+<section id="impressum">
     <h2>Impressum</h2>
     <p>24OliveTrees MEDIA UG (haftungsbeschränkt)<br/>
         Tietjenstr. 2<br/>
@@ -57,9 +132,7 @@
         <br/>
         Verantwortlich für den Inhalt der Seite: Moritz Rocker<br/></p>
 </section>
-<section id="kontakt">
 
-</section>
 <script>
     //Initialization
     let cos = new Array(125), i;
@@ -158,8 +231,8 @@
     function animate(object, property, end, milliseconds) {
         let interval,
             t = 0,
-            delta = 1000 / milliseconds;
-        start = parseInt(window.getComputedStyle(object, null).getPropertyValue(property), 10),
+            delta = 1000 / milliseconds,
+            start = parseInt(window.getComputedStyle(object, null).getPropertyValue(property), 10),
             way = start - end;
         object.style.display = 'block';
         if (delta > 124) {

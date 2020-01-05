@@ -48,7 +48,7 @@ video {
     left: calc(50% - 78px);
 }
 
-.refs {
+.box {
     top: 50px;
     background-color: #ffc900;
 }
@@ -60,10 +60,10 @@ video {
     background-color: #000000;
 }
 
-.refs > h2 {
+.box > h2 {
     left: 25px;
 }
 
-.refs > p {
+.box > p {
     left: 25px;
 }

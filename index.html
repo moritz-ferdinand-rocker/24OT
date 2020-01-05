@@ -165,11 +165,14 @@
     }
 
     function animateBoxes(milliseconds) {
-        let boxes = document.getElementsByClassName('box');
-        let boxWidth = window.innerWidth / boxes.length;
-        for (let i = 0; i < boxes.length; ++i) {
-            animate(boxes[i], 'width', boxWidth, milliseconds);
-            animate(boxes[i], 'left', i * boxWidth, milliseconds);
+        let sections = document.getElementsByTagName('section');
+        for (let i = 0; i < sections.length; ++i) {
+            let boxes = sections[i].getElementsByClassName('box');
+            let boxWidth = window.innerWidth / boxes.length;
+            for (let j = 0; j < boxes.length; ++j) {
+                animate(boxes[j], 'width', boxWidth, milliseconds);
+                animate(boxes[j], 'left', j * boxWidth, milliseconds);
+            }
         }
     }
     //Play videos on hover
@@ -193,6 +196,7 @@
     sections[0].style.backgroundColor = 'black';
     sections[0].style.top = '0px';
     for (i = 0; i < sections.length; ++i) {
+        sections[i].style.zIndex = 10 - i + '';
         sections[i].style.height = window.innerHeight - sections.length * 50 + 'px';
     }
 

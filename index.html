@@ -20,33 +20,23 @@
     <img alt="logo" id="logo" src="logo.svg"/>
 </section>
 <section id="portfolio">
-    <div class="box">
-        <div class="refPic">
-            <video class="refV" id="video" muted>
-                <source src="showreel_test21.mp4" type="video/mp4">
-            </video>
-        </div>
-        <h2 class="refH">Musikvideos</h2>
-        <p class="refP">Mit unserem hauseigenen Starregisseur Paulo José. Sehr gut.</p>
+    <div class="box" id="musikvideos">
+        <video class="refV" id="video" muted>
+            <source src="showreel_test21.mp4" type="video/mp4">
+        </video>
+        <h2>Musikvideos</h2>
     </div>
-    <div class="box">
-        <div class="refPic">
-            <video class="refV" muted>
-                <source src="showreel_test21.mp4" type="video/mp4">
-            </video>
-        </div>
-        <h2 class="refH">Unternehmensfilm</h2>
-        <p class="refP">Ob Image-, Recriting-, Messe-, Schulungs- oder Eventfilm. Wir sind für Sie da und bieten Ihnen
-            ein unvergessliches Video.</p>
+    <div class="box" id="unternehmensfilme">
+        <video class="refV" muted>
+            <source src="showreel_test21.mp4" type="video/mp4">
+        </video>
+        <h2>Unternehmensfilme</h2>
     </div>
-    <div class="box">
-        <div class="refPic">
-            <video class="refV" muted>
-                <source src="showreel_test21.mp4" type="video/mp4">
-            </video>
-        </div>
-        <h2 class="refH">Produktfilme / Werbung</h2>
-        <p class="refP">Wenn es um Ihr Produkt geht, sind Sie hier genau richtig!</p>
+    <div class="box" id="produktfilme">
+        <video class="refV" muted>
+            <source src="showreel_test21.mp4" type="video/mp4">
+        </video>
+        <h2>Produktfilme</h2>
     </div>
 </section>
 <section id="wir sind">
@@ -82,21 +72,12 @@
         e.parentNode.removeChild(e);
     }
 
-    function refFunc() {
-        let references = document.getElementsByClassName('box');
-        let refPics = document.getElementsByClassName('refPic');
-        let refH = document.getElementsByClassName('refH');
-        let refP = document.getElementsByClassName('refP');
-        let refWidth = (window.innerWidth - (1 + references.length) * 50) / references.length;
-        for (let i = 0; i < references.length; ++i) {
-            animate(references[i], 'width', refWidth, 1);
-            animate(references[i], 'left', 50 + i * (50 + refWidth), 1);
-            animate(references[i], 'height', window.innerHeight - 100, 1);
-            animate(refPics[i], 'height', 0.382 * window.innerHeight, 1);
-            animate(refH[i], 'width', refWidth - 50, 1);
-            animate(refH[i], 'top', 0.382 * window.innerHeight + 25, 1);
-            animate(refP[i], 'width', refWidth - 50, 1);
-            animate(refP[i], 'top', 0.382 * window.innerHeight + 100, 1);
+    function animateBoxes() {
+        let boxes = document.getElementsByClassName('box');
+        let boxWidth = window.innerWidth / boxes.length;
+        for (let i = 0; i < boxes.length; ++i) {
+            animate(boxes[i], 'width', boxWidth, 1);
+            animate(boxes[i], 'left', i * boxWidth, 1);
         }
     }
 
@@ -110,11 +91,11 @@
     };
 
     document.onload = () => {
-        refFunc();
+        animateBoxes();
     };
 
     window.onresize = () => {
-        refFunc();
+        animateBoxes();
     };
 
     let sections = document.getElementsByTagName('section');

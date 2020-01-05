@@ -67,12 +67,12 @@
         cos[i] = (1 + Math.cos(Math.PI / 125 * i)) / 2;
     }
 
-    function animateBoxes() {
+    function animateBoxes(milliseconds) {
         let boxes = document.getElementsByClassName('box');
         let boxWidth = window.innerWidth / boxes.length;
         for (let i = 0; i < boxes.length; ++i) {
-            animate(boxes[i], 'width', boxWidth, 1);
-            animate(boxes[i], 'left', i * boxWidth, 1);
+            animate(boxes[i], 'width', boxWidth, milliseconds);
+            animate(boxes[i], 'left', i * boxWidth, milliseconds);
         }
     }
     //Play videos on hover
@@ -86,7 +86,7 @@
     };
 
     window.onresize = () => {
-        animateBoxes();
+        animateBoxes(1000);
     };
 
     let sections = document.getElementsByTagName('section');
@@ -155,18 +155,22 @@
         oldR = r;
     }
 
-    function animate(object, property, end, factor) {
+    function animate(object, property, end, milliseconds) {
         let interval,
             t = 0,
-            start = parseInt(window.getComputedStyle(object, null).getPropertyValue(property), 10),
+            delta = 1000 / milliseconds;
+        start = parseInt(window.getComputedStyle(object, null).getPropertyValue(property), 10),
             way = start - end;
         object.style.display = 'block';
+        if (delta > 124) {
+            delta = 124;
+        }
         interval = setInterval(() => {
-            object.style[property] = end + cos[t] * way + 'px';
-            t += factor;
             if (124 < t) {
                 clearInterval(interval);
             }
+            object.style[property] = end + cos[t] * way + 'px';
+            t += delta;
         }, 4);
     }
 
@@ -175,41 +179,41 @@
             switch (d) {
                 case 'down':
                     if (page <= sections.length - 2) {
-                        animate(sections[page++], 'top', -window.innerHeight, 1);
+                        animate(sections[page++], 'top', -window.innerHeight, 1000);
                         //document.location.hash = sections[page].id;
                         sections[page].style.top = window.innerHeight + 'px';
-                        window.setTimeout('animate(sections[page], "top", 0, 1)', 100);
+                        window.setTimeout('animate(sections[page], "top", 0, 1000)', 100);
 
                     } else {
-                        animate(sections[page], 'top', -100, 2);
-                        window.setTimeout('animate(sections[page], "top", 0,2)', 250);
+                        animate(sections[page], 'top', -100, 500);
+                        window.setTimeout('animate(sections[page], "top", 0,500)', 250);
                     }
                     break;
                 case 'up':
                     if (page >= 1) {
-                        animate(sections[page--], 'top', window.innerHeight, 1);
+                        animate(sections[page--], 'top', window.innerHeight, 1000);
                         document.location.hash = sections[page].id;
                         sections[page].style.top = -window.innerHeight + 'px';
-                        window.setTimeout('animate(sections[page], "top", 0, 1)', 100);
+                        window.setTimeout('animate(sections[page], "top", 0, 1000)', 100);
 
                     } else {
-                        animate(sections[page], 'top', 100, 2);
-                        window.setTimeout('animate(sections[page],"top", 0, 2)', 250);
+                        animate(sections[page], 'top', 100, 500);
+                        window.setTimeout('animate(sections[page],"top", 0, 500)', 250);
                     }
                     break;
                 case 'left':
-                    animate(sections[page], 'left', 100, 2);
-                    window.setTimeout('animate(sections[page], "left", 0,2)', 250);
+                    animate(sections[page], 'left', 100, 500);
+                    window.setTimeout('animate(sections[page], "left", 0,500)', 250);
                     break;
                 case 'right':
-                    animate(sections[page], 'left', -100, 2);
-                    window.setTimeout('animate(sections[page], "left", 0,2)', 250);
+                    animate(sections[page], 'left', -100, 500);
+                    window.setTimeout('animate(sections[page], "left", 0,500)', 250);
                     break;
             }
             oldScroll = window.scrollY;
             oldTime = Date.now();
+            animateBoxes(0);
         }
-        animateBoxes();
     }
 </script>
 </body>

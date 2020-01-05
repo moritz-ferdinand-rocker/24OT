@@ -62,10 +62,7 @@
             </video>
         </div>
     </div>
-
-
 </section>
-
 <section id="narrativ">
     <h2>Filmemacher!</h2>
     <div class="box" id="narrativ">
@@ -82,7 +79,6 @@
         <h4>Die geheimen Tipps und Tricks.</h4>
         <p id="bts">Um mit Bewegtbild zu verzaubern, müssen viele Opfer gebracht werden. Hier mehr dazu.</p>
         <p id="achja"> Ach ja. Blicke hinter die Kulissen und Technik gibt es hier auch.</p>
-
         <div class="grid" id="bts- beispiel1">
             <video class="refV" id="video" muted>
                 <source src="Videos/BTS%-%20Beispiel.mp4" type="video/mp4">
@@ -158,6 +154,9 @@
     sections[0].style.display = 'block';
     sections[0].style.backgroundColor = 'black';
     sections[0].style.top = '0px';
+    for (i = 0; i < sections.length; ++i) {
+        sections[i].style.height = window.innerHeight - sections.length * 50 + 'px';
+    }
 
     //Scroll by touch
     let oldX, oldY;
@@ -238,14 +237,13 @@
     }
 
     function scroll(d) {
-        if (600 + oldTime < Date.now()) {
+        if (500 + oldTime < Date.now()) {
+            animateBoxes(0);
             switch (d) {
                 case 'down':
                     if (page <= sections.length - 2) {
-                        animate(sections[page++], 'top', -window.innerHeight, 1000);
-                        //document.location.hash = sections[page].id;
-                        sections[page].style.top = window.innerHeight + 'px';
-                        window.setTimeout('animate(sections[page], "top", 0, 1000)', 100);
+                        animate(sections[page++], 'top', -window.innerHeight + (page + sections.length) * 50, 1000);
+                        window.setTimeout('animate(sections[page], "top", page * 50, 1000)', 100);
 
                     } else {
                         animate(sections[page], 'top', -100, 500);
@@ -254,10 +252,8 @@
                     break;
                 case 'up':
                     if (page >= 1) {
-                        animate(sections[page--], 'top', window.innerHeight, 1000);
-                        document.location.hash = sections[page].id;
-                        sections[page].style.top = -window.innerHeight + 'px';
-                        window.setTimeout('animate(sections[page], "top", 0, 1000)', 100);
+                        animate(sections[page--], 'top', window.innerHeight - (sections.length - page) * 50, 1000);
+                        window.setTimeout('animate(sections[page], "top", page * 50, 1000)', 100);
 
                     } else {
                         animate(sections[page], 'top', 100, 500);
@@ -275,7 +271,6 @@
             }
             oldScroll = window.scrollY;
             oldTime = Date.now();
-            animateBoxes(0);
         }
     }
 </script>

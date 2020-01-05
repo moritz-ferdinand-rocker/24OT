@@ -54,3 +54,7 @@ h3 {
 video {
     filter: brightness(50%);
 }
+
+p {
+    color: white;
+}

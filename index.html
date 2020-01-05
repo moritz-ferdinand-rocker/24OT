@@ -67,11 +67,6 @@
         cos[i] = (1 + Math.cos(Math.PI / 125 * i)) / 2;
     }
 
-    if (1 > navigator.connection.downlink) {
-        let e = document.getElementById('header-video');
-        e.parentNode.removeChild(e);
-    }
-
     function animateBoxes() {
         let boxes = document.getElementsByClassName('box');
         let boxWidth = window.innerWidth / boxes.length;
@@ -80,7 +75,7 @@
             animate(boxes[i], 'left', i * boxWidth, 1);
         }
     }
-
+    //Play videos on hover
     document.getElementById('video').onmouseenter = (e) => {
         let o = e.target;
         o.play();
@@ -88,10 +83,6 @@
     document.getElementById('video').onmouseleave = (e) => {
         let o = e.target;
         o.pause();
-    };
-
-    document.onload = () => {
-        animateBoxes();
     };
 
     window.onresize = () => {
@@ -112,13 +103,13 @@
         oldY = e.touches[0].clientY;
     };
     window.ontouchmove = (e) => {
-        navigate(oldX - e.changedTouches[0].clientX, oldY - e.changedTouches[0].clientY);
+        recognizeGesture(oldX - e.changedTouches[0].clientX, oldY - e.changedTouches[0].clientY);
     };
 
 
     //Scroll by wheel
     window.onwheel = (e) => {
-        navigate(e.deltaX, e.deltaY);
+        recognizeGesture(e.deltaX, e.deltaY);
     };
 
     //Scroll by keys
@@ -142,7 +133,7 @@
 
     let oldR = 0, r, angle, oldNavigate = 0;
 
-    function navigate(x, y) {
+    function recognizeGesture(x, y) {
         //TODO Optimize gesture recognition
         r = Math.sqrt(x * x + y * y);
         if (20 < r && oldR * (1 - (Date.now() - oldNavigate) / 3000) < r) {
@@ -185,7 +176,7 @@
                 case 'down':
                     if (page <= sections.length - 2) {
                         animate(sections[page++], 'top', -window.innerHeight, 1);
-                        document.location.hash = sections[page].id;
+                        //document.location.hash = sections[page].id;
                         sections[page].style.top = window.innerHeight + 'px';
                         window.setTimeout('animate(sections[page], "top", 0, 1)', 100);
 

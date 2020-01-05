@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link href="stylesheet.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="24OliveTrees" name="title">
+    <meta content="Moritz Ferdinand Rocker" name="author">
+    <meta content="2019-10-23" name="date">
+    <meta content="" name="Description">
+    <meta content="24OliveTrees, 24OT, Musicvideo, Imagefilm, Commercial" name="Keywords">
+    <meta content="all" name="robots">
+    <title>24OliveTrees</title>
+</head>
+<body>
+<section>
+    <video autoplay id="header-video" loop muted>
+        <source src="showreel_test21.mp4" type="video/mp4">
+    </video>
+    <img alt="logo" id="logo" src="logo.svg"/>
+</section>
+<section>
+    <div class="refs">
+        <div class="refPic">
+            <video class="refV" id="video" muted>
+                <source src="showreel_test21.mp4" type="video/mp4">
+            </video>
+        </div>
+        <h2 class="refH">Musikvideos</h2>
+        <p class="refP">Mit unserem hauseigenen Starregisseur Paulo José. Sehr gut.</p>
+    </div>
+    <div class="refs">
+        <div class="refPic">
+            <video class="refV" muted>
+                <source src="showreel_test21.mp4" type="video/mp4">
+            </video>
+        </div>
+        <h2 class="refH">Unternehmensfilm</h2>
+        <p class="refP">Ob Image-, Recriting-, Messe-, Schulungs- oder Eventfilm. Wir sind für Sie da und bieten Ihnen
+            ein unvergessliches Video.</p>
+    </div>
+    <div class="refs">
+        <div class="refPic">
+            <video class="refV" muted>
+                <source src="showreel_test21.mp4" type="video/mp4">
+            </video>
+        </div>
+        <h2 class="refH">Produktfilme / Werbung</h2>
+        <p class="refP">Wenn es um Ihr Produkt geht, sind Sie hier genau richtig!</p>
+    </div>
+</section>
+<section>
+</section>
+<section>
+    <h2>Impressum</h2>
+    <p>24OliveTrees MEDIA UG (haftungsbeschränkt)<br/>
+        Tietjenstr. 2<br/>
+        28359 Bremen<br/>
+        +49 421 9896 4620<br/>
+        hello@24olivetrees.com<br/>
+        24olivetrees.com<br/>
+        <br/>
+        Amtsgericht Bremen: HRB 34903 HB<br/>
+        USt-ID: DE326107002<br/>
+        Geschäftsführer: Tilman Görlitz<br/>
+        Geschäftszeiten: montags bis freitags, 10 - 18 Uhr<br/>
+        <br/>
+        Verantwortlich für den Inhalt der Seite: Moritz Rocker<br/></p>
+</section>
+
+<script>
+    //Initialization
+    let cos = new Array(125), i;
+    for (i = 0; i < 125; ++i) {
+        cos[i] = (1 + Math.cos(Math.PI / 125 * i)) / 2;
+    }
+
+    if (1 > navigator.connection.downlink) {
+        let e = document.getElementById('header-video');
+        e.parentNode.removeChild(e);
+    }
+
+    function refFunc() {
+        let references = document.getElementsByClassName('refs');
+        let refPics = document.getElementsByClassName('refPic');
+        let refH = document.getElementsByClassName('refH');
+        let refP = document.getElementsByClassName('refP');
+        let refWidth = (window.innerWidth - (1 + references.length) * 50) / references.length;
+        for (let i = 0; i < references.length; ++i) {
+            animate(references[i], 'width', refWidth, 1);
+            animate(references[i], 'left', 50 + i * (50 + refWidth), 1);
+            animate(references[i], 'height', window.innerHeight - 100, 1);
+            animate(refPics[i], 'height', 0.382 * window.innerHeight, 1);
+            animate(refH[i], 'width', refWidth - 50, 1);
+            animate(refH[i], 'top', 0.382 * window.innerHeight + 25, 1);
+            animate(refP[i], 'width', refWidth - 50, 1);
+            animate(refP[i], 'top', 0.382 * window.innerHeight + 100, 1);
+        }
+    }
+
+    document.getElementById('video').onmouseenter = (e) => {
+        let o = e.target;
+        o.play();
+    };
+    document.getElementById('video').onmouseleave = (e) => {
+        let o = e.target;
+        o.pause();
+    };
+
+    document.onload = () => {
+        refFunc();
+    };
+
+    window.onresize = () => {
+        refFunc();
+    };
+
+    let sections = document.getElementsByTagName('section');
+    let page = 0, oldScroll = 0, oldTime = 0;
+
+    sections[0].style.display = 'block';
+    sections[0].style.backgroundColor = 'black';
+    sections[0].style.top = '0px';
+
+    //Scroll by touch
+    let oldX, oldY;
+    window.ontouchstart = (e) => {
+        oldX = e.touches[0].clientX;
+        oldY = e.touches[0].clientY;
+    };
+    window.ontouchmove = (e) => {
+        navigate(oldX - e.changedTouches[0].clientX, oldY - e.changedTouches[0].clientY);
+    };
+
+
+    //Scroll by wheel
+    window.onwheel = (e) => {
+        navigate(e.deltaX, e.deltaY);
+    };
+
+    //Scroll by keys
+    document.onkeydown = (e) => {
+        switch (e.keyCode) {
+            case 37:
+                scroll('left');
+                break;
+            case 38:
+                scroll('up');
+                break;
+            case 39:
+                scroll('right');
+                break;
+            case 40:
+                scroll('down');
+                break;
+        }
+    };
+
+
+    let oldR = 0, r, angle, oldNavigate = 0;
+
+    function navigate(x, y) {
+        //TODO Optimize gesture recognition
+        r = Math.sqrt(x * x + y * y);
+        if (20 < r && oldR * (1 - (Date.now() - oldNavigate) / 3000) < r) {
+            angle = Math.atan2(x, y);
+            if (Math.PI / 4 > angle && -Math.PI / 4 < angle) {
+                scroll('down');
+            }
+            if (Math.PI * 3 / 4 < angle || -Math.PI * 3 / 4 > angle) {
+                scroll('up');
+            }
+            if (Math.PI / 4 < angle && Math.PI * 3 / 4 > angle) {
+                scroll('right');
+            }
+            if (-Math.PI / 4 > angle && -Math.PI * 3 / 4 < angle) {
+                scroll('left');
+            }
+            oldNavigate = Date.now();
+        }
+        oldR = r;
+    }
+
+    function animate(object, property, end, factor) {
+        let interval,
+            t = 0,
+            start = parseInt(window.getComputedStyle(object, null).getPropertyValue(property), 10),
+            way = start - end;
+        object.style.display = 'block';
+        interval = setInterval(() => {
+            object.style[property] = end + cos[t] * way + 'px';
+            t += factor;
+            if (124 < t) {
+                clearInterval(interval);
+            }
+        }, 4);
+    }
+
+    function scroll(d) {
+        if (600 + oldTime < Date.now()) {
+            switch (d) {
+                case 'down':
+                    if (page <= sections.length - 2) {
+                        animate(sections[page++], 'top', -window.innerHeight, 1);
+                        document.location.hash = sections[page].id;
+                        sections[page].style.top = window.innerHeight + 'px';
+                        window.setTimeout('animate(sections[page], "top", 0, 1)', 100);
+
+                    } else {
+                        animate(sections[page], 'top', -100, 2);
+                        window.setTimeout('animate(sections[page], "top", 0,2)', 250);
+                    }
+                    break;
+                case 'up':
+                    if (page >= 1) {
+                        animate(sections[page--], 'top', window.innerHeight, 1);
+                        document.location.hash = sections[page].id;
+                        sections[page].style.top = -window.innerHeight + 'px';
+                        window.setTimeout('animate(sections[page], "top", 0, 1)', 100);
+
+                    } else {
+                        animate(sections[page], 'top', 100, 2);
+                        window.setTimeout('animate(sections[page],"top", 0, 2)', 250);
+                    }
+                    break;
+                case 'left':
+                    animate(sections[page], 'left', 100, 2);
+                    window.setTimeout('animate(sections[page], "left", 0,2)', 250);
+                    break;
+                case 'right':
+                    animate(sections[page], 'left', -100, 2);
+                    window.setTimeout('animate(sections[page], "left", 0,2)', 250);
+                    break;
+            }
+            oldScroll = window.scrollY;
+            oldTime = Date.now();
+        }
+    }
+</script>
+</body>
+</html>

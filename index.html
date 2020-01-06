@@ -203,17 +203,22 @@
     //Scroll by touch
     let oldX, oldY;
     window.ontouchstart = (e) => {
+        e.preventDefault();
         oldX = e.touches[0].clientX;
         oldY = e.touches[0].clientY;
     };
     window.ontouchmove = (e) => {
-        recognizeGesture(oldX - e.changedTouches[0].clientX, oldY - e.changedTouches[0].clientY);
+        sections[page].style.top = e.changedTouches[0].clientY - oldY + 'px';
+        sections[page].style.left = e.changedTouches[0].clientX - oldX + 'px';
+    };
+    window.ontouchend = (e) => {
+        recognize(oldX - e.changedTouches[0].clientX, oldY - e.changedTouches[0].clientY);
     };
 
 
     //Scroll by wheel
     window.onwheel = (e) => {
-        recognizeGesture(e.deltaX, e.deltaY);
+        recognize(e.deltaX, e.deltaY);
     };
 
     //Scroll by keys
@@ -237,7 +242,7 @@
 
     let oldR = 0, r, angle, oldNavigate = 0;
 
-    function recognizeGesture(x, y) {
+    function recognize(x, y) {
         //TODO Optimize gesture recognition
         r = Math.sqrt(x * x + y * y);
         if (20 < r && oldR * (1 - (Date.now() - oldNavigate) / 3000) < r) {
@@ -257,6 +262,19 @@
             oldNavigate = Date.now();
         }
         oldR = r;
+
+        if (x < 50) {
+            scroll('left');
+        }
+        if (x > 50) {
+            scroll('right');
+        }
+        if (y < 50) {
+            scroll('up');
+        }
+        if (y > 50) {
+            scroll('down');
+        }
     }
 
     function animate(object, property, end, milliseconds) {
@@ -278,37 +296,48 @@
         }, 4);
     }
 
+    function pull() { //pulls the current section
+
+    }
+
+    function peek() { //moves the current section a bit
+
+    }
+
     function scroll(d) {
         if (500 + oldTime < Date.now()) {
             animateBoxes(0);
             switch (d) {
                 case 'down':
                     if (page <= sections.length - 2) {
+                        animate(sections[page], 'left', 0, 1000);
                         animate(sections[page++], 'top', -window.innerHeight + (page + sections.length) * 50, 1000);
                         window.setTimeout('animate(sections[page], "top", page * 50, 1000)', 100);
 
                     } else {
-                        animate(sections[page], 'top', -100, 500);
-                        window.setTimeout('animate(sections[page], "top", 0,500)', 250);
+                        animate(sections[page], 'top', 0, 500);
+                        animate(sections[page], 'left', 0, 500);
                     }
                     break;
                 case 'up':
                     if (page >= 1) {
+                        animate(sections[page], 'left', 0, 1000);
                         animate(sections[page--], 'top', window.innerHeight - (sections.length - page) * 50, 1000);
                         window.setTimeout('animate(sections[page], "top", page * 50, 1000)', 100);
 
                     } else {
-                        animate(sections[page], 'top', 100, 500);
-                        window.setTimeout('animate(sections[page],"top", 0, 500)', 250);
+                        animate(sections[page], 'top', 0, 500);
+                        animate(sections[page], 'left', 0, 500);
+
                     }
                     break;
                 case 'left':
-                    animate(sections[page], 'left', 100, 500);
-                    window.setTimeout('animate(sections[page], "left", 0,500)', 250);
+                    animate(sections[page], 'top', 0, 500);
+                    animate(sections[page], 'left', 0, 500);
                     break;
                 case 'right':
-                    animate(sections[page], 'left', -100, 500);
-                    window.setTimeout('animate(sections[page], "left", 0,500)', 250);
+                    animate(sections[page], 'top', 0, 500);
+                    animate(sections[page], 'left', 0, 500);
                     break;
             }
             oldScroll = window.scrollY;

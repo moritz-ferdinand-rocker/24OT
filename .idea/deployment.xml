@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="Strato" autoUploadExternalChanges="true">
+  <component name="PublishConfigData" serverName="Strato" uploadOnCheckin="aa8bd688-ba25-44f6-ac4c-8b75c1c387d6" autoUploadExternalChanges="true">
     <serverData>
       <paths name="Strato">
         <serverdata>
@@ -10,6 +10,6 @@
         </serverdata>
       </paths>
     </serverData>
-    <option name="myAutoUpload" value="ALWAYS" />
+    <option name="myUploadOnCheckinName" value="Strato" />
   </component>
 </project>

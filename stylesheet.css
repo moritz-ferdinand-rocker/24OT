@@ -62,3 +62,14 @@ video {
 p {
     color: white;
 }
+
+video {
+    transition: transform .5s, filter 1.5s ease-in-out;
+    filter: grayscale(100%);
+}
+
+video:hover {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+

@@ -200,12 +200,10 @@
 
     //P-L-A-Y- -V-I-D-E-O-S- -O-N- -H-O-V-E-R , SIZE BIGGER
     document.getElementsByTagName('video').onmouseenter = (e) => {
-        scale(1.5);
         let o = e.target;
         o.play();
     };
     document.getElementsByTagName('video').onmouseleave = (e) => {
-        scale(1.0);
         let o = e.target;
         o.pause();
     };

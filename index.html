@@ -323,19 +323,24 @@
     };
 
     //P-E-E-K
-    function peek(sections, keyCode) { //moves the current section a bit
+    function peek(object, keyCode) { //moves the current section a bit
         switch (keyCode) {
             case 37:
-                animate(sections[page], 'left', -50, 500);
+
+                animate(object, 'left', parseInt(window.getComputedStyle(object, null).getPropertyValue('left'), 10)
+                    - 50, 500);
                 break;
             case 38:
-                animate(sections[page], 'top', 50 * page + 50, 500);
+                animate(object, 'top', parseInt(window.getComputedStyle(object, null).getPropertyValue('top') + 50, 10),
+                    500);
                 break;
             case 39:
-                animate(sections[page], 'left', 50, 500);
+                animate(object, 'left', parseInt(window.getComputedStyle(object, null).getPropertyValue('left'), 10)
+                    + 50, 500);
                 break;
             case 40:
-                animate(sections[page], 'top', 50 * page - 50, 500);
+                animate(object, 'top', parseInt(window.getComputedStyle(object, null).getPropertyValue('left'), 10) - 50,
+                    500);
                 break;
         }
     }
@@ -344,7 +349,7 @@
     let keyUp = true;
     document.onkeydown = (e) => { //peeks, if key is down
         if (keyUp) {
-            peek(sections, e.keyCode);
+            peek(sections[page], e.keyCode);
             keyUp = false;
         }
     };

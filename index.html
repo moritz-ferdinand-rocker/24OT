@@ -294,6 +294,9 @@
     }
 
     let sections = document.getElementsByTagName('section');
+    for (let i = 0; i < sections.length; ++i) {
+        sections[i].style.height = window.innerHeight - sections.length * 50 + 'px';
+    }
 
     //W-H-E-E-L
     window.onwheel = (e) => { //scrolls, if wheel moved

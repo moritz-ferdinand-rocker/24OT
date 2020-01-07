@@ -309,7 +309,6 @@
     //T-O-U-C-H
     let oldX, oldY;
     window.ontouchstart = (e) => { //stores location of touch start
-        e.preventDefault();
         oldX = e.touches[0].clientX;
         oldY = e.touches[0].clientY;
     };

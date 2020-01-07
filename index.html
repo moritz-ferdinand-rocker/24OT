@@ -259,6 +259,7 @@
                 }
             }
         }
+        animateBoxes(0);
 
     window.onresize = () => {
         animateBoxes(1000);
@@ -326,7 +327,6 @@
     function peek(object, keyCode) { //moves the current section a bit
         switch (keyCode) {
             case 37:
-
                 animate(object, 'left', parseInt(window.getComputedStyle(object, null).getPropertyValue('left'), 10)
                     - 50, 500);
                 break;
@@ -339,7 +339,7 @@
                     + 50, 500);
                 break;
             case 40:
-                animate(object, 'top', parseInt(window.getComputedStyle(object, null).getPropertyValue('left'), 10) - 50,
+                animate(object, 'top', parseInt(window.getComputedStyle(object, null).getPropertyValue('top'), 10) - 50,
                     500);
                 break;
         }

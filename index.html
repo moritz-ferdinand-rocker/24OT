@@ -341,11 +341,18 @@
     }
 
     //K-E-Y-S
+    let keyUp = true;
     document.onkeydown = (e) => { //peeks, if key is down
-        peek(sections, e.keyCode);
+        if (keyUp) {
+            peek(sections, e.keyCode);
+            keyUp = false;
+        }
     };
     document.onkeyup = (e) => { //scrolls, if key is released
-        scroll(sections, e.keyCode);
+        if (!keyUp) {
+            scroll(sections, e.keyCode);
+            keyUp = true;
+        }
     };
 </script>
 </body>

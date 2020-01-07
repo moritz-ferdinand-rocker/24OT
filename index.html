@@ -186,9 +186,10 @@
             current = sections[i];
             top = parseInt(window.getComputedStyle(current, null).getPropertyValue('top'), 10); //get top of current
             height = parseInt(window.getComputedStyle(current, null).getPropertyValue('height'), 10); //get height of current
-            console.log(height);
             if (i < page) {
                 newTop = (i + 1) * 50 - height; //top navigation
+                console.log(newTop);
+
             } else if (i > page) {
                 newTop = window.innerHeight - (sections.length - i) * 50; //current page
             } else {

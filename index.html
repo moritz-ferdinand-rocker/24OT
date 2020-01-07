@@ -163,6 +163,8 @@
     for (i = 0; i < 125; ++i) {
         cos[i] = (1 + Math.cos(Math.PI / 125 * i)) / 2;
     }
+    let page = 0;
+    scrollTo(0, 0); //first draw
 
     function animateBoxes(milliseconds) {
         let sections = document.getElementsByTagName('section');
@@ -176,7 +178,7 @@
         }
     }
 
-    function scrollTo(page, milliseconds) { //scrolls to a page in some milliseconds
+    function scrollTo(page, milliseconds, delay) { //scrolls to a page in some milliseconds
         let i = 0, current, top, newTop, counter = 0, height;
         for (; i < sections.length; ++i) {
             current = sections[i];
@@ -190,7 +192,7 @@
                 newTop = window.innerHeight / 2 - height / 2; //bottom navigation
             }
             if (top !== newTop) { //animate current, if current has to be animated
-                counter += 100; //add 100 milliseconds delay per animation
+                counter += delay; //add 100 milliseconds delay per animation
                 window.setTimeout('animate(current,"top", newTop, milliseconds)', counter);
             }
         }
@@ -335,9 +337,10 @@
                     if (page < 1) {
                         reset();
                     } else {
-                        animate(sections[page], 'left', 0, 1000);
+                        scrollTo(--page, 1000, 100);
+                        /*animate(sections[page], 'left', 0, 1000);
                         animate(sections[page--], 'top', window.innerHeight - (sections.length - page) * 50, 1000);
-                        window.setTimeout('animate(sections[page], "top", page * 50, 1000)', 100);
+                        window.setTimeout('animate(sections[page], "top", page * 50, 1000)', 100);*/
 
                     }
                     break;
@@ -348,14 +351,10 @@
                     if (page > sections.length - 2) {
                         reset();
                     } else {
-                        let headings = sections[page].getElementsByTagName('h2');
-                        for (let i = 0; i < headings.length; ++i) {
-                            headings[i].style.position = 'absolute';
-                        }
-                        animate(sections[page], 'left', 0, 1000);
+                        scrollTo(++page, 1000, 100);
+                        /*animate(sections[page], 'left', 0, 1000);
                         animate(sections[page++], 'top', -window.innerHeight + (page + sections.length) * 50, 1000);
-                        window.setTimeout('animate(sections[page], "top", page * 50, 1000)', 100);
-
+                        window.setTimeout('animate(sections[page], "top", page * 50, 1000)', 100);*/
                     }
                     break;
             }

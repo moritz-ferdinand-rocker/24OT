@@ -179,11 +179,11 @@
     }
 
     function scrollTo(page, milliseconds, delay) { //scrolls to a page in some milliseconds
-        let i = 0, current, top, newTop, counter = 0, height;
+        let i = 0, current, top, newTop, delaySum = 0, height;
         for (; i < sections.length; ++i) {
             current = sections[i];
             top = parseInt(window.getComputedStyle(current, null).getPropertyValue('top'), 10); //get top of current
-            height = parseInt(window.getComputedStyle(current, null).getPropertyValue('height'), 10);
+            height = parseInt(window.getComputedStyle(current, null).getPropertyValue('height'), 10); //get height of current
             if (i < page) {
                 newTop = (i + 1) * 50 - height; //top navigation
             } else if (i > page) {
@@ -192,8 +192,8 @@
                 newTop = window.innerHeight / 2 - height / 2; //bottom navigation
             }
             if (top !== newTop) { //animate current, if current has to be animated
-                counter += delay; //add 100 milliseconds delay per animation
-                window.setTimeout('animate(current,"top", newTop, milliseconds)', counter);
+                delaySum += delay; //add 100 milliseconds delay per animation
+                window.setTimeout(() => animate(current, 'top', newTop, milliseconds), delaySum)
             }
         }
     }

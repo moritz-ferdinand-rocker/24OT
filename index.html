@@ -279,7 +279,6 @@
 
     //R-E-C-O-G-N-I-Z-E
     function recognize(x, y) { //returns keyCode of recognized direction
-        //TODO Optimize gesture recognition
         if (y > -20 && y < 20) {
             if (x < -50) {
                 return 37;
@@ -307,8 +306,8 @@
 
     //D-R-A-G
     function drag(sections, x, y) { //drags current section
-        sections[page].style.top = (y - oldY) / 5 + 'px';
-        sections[page].style.left = (x - oldX) / 5 + 'px';
+        sections[page].style.top = (y - oldY) / 10 + 'px';
+        sections[page].style.left = (x - oldX) / 10 + 'px';
     }
 
     //T-O-U-C-H

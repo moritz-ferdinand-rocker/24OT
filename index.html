@@ -310,6 +310,10 @@
             switch (d) {
                 case 'down':
                     if (page <= sections.length - 2) {
+                        let headings = sections[page].getElementsByTagName('h2');
+                        for (let i = 0; i < headings.length; ++i) {
+                            headings[i].style.position = 'absolute';
+                        }
                         animate(sections[page], 'left', 0, 1000);
                         animate(sections[page++], 'top', -window.innerHeight + (page + sections.length) * 50, 1000);
                         window.setTimeout('animate(sections[page], "top", page * 50, 1000)', 100);

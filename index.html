@@ -188,17 +188,17 @@
             height = parseInt(window.getComputedStyle(current, null).getPropertyValue('height'), 10); //get height of current
             if (i < page) {
                 newTop = (i + 1) * 50 - height; //top navigation
-                console.log(newTop);
-
             } else if (i > page) {
                 newTop = window.innerHeight - (sections.length - i) * 50; //current page
             } else {
                 newTop = window.innerHeight / 2 - height / 2; //bottom navigation
             }
             if (top !== newTop) { //animate current, if current has to be animated
-                console.log("Yay");
                 delaySum += delay; //add 100 milliseconds delay per animation
-                window.setTimeout(() => animate(current, 'top', newTop, milliseconds), delaySum);
+                window.setTimeout(() => {
+                    animate(current, 'top', newTop, milliseconds);
+                    console.log("Yay");
+                }, delaySum);
             }
         }
     }

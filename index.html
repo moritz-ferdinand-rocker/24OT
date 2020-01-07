@@ -158,27 +158,29 @@
 </section>
 
 <script>
-    // I-N-I-T-I-A-L
-    let cos = new Array(125), i;
-    for (i = 0; i < 125; ++i) {
+    //A-N-I-M-A-T-E
+    let cos = new Array(125);
+    for (let i = 0; i < 125; ++i) {
         cos[i] = (1 + Math.cos(Math.PI / 125 * i)) / 2;
     }
-    let page = 0;
-    scrollTo(0, 0); //first draw
 
-    function animateBoxes(milliseconds) {
-        let sections = document.getElementsByTagName('section');
-        for (let i = 0; i < sections.length; ++i) {
-            let boxes = sections[i].getElementsByClassName('box');
-            let boxWidth = window.innerWidth / boxes.length;
-            for (let j = 0; j < boxes.length; ++j) {
-                animate(boxes[j], 'width', boxWidth, milliseconds);
-                animate(boxes[j], 'left', j * boxWidth, milliseconds);
-            }
+    function animate(object, property, end, milliseconds) {
+        let interval, t = 0, delta = 1000 / milliseconds, start = parseInt(window.getComputedStyle(object, null)
+            .getPropertyValue(property), 10), way = start - end;
+        if (delta > 124) {
+            delta = 124;
         }
+        interval = setInterval(() => {
+            if (124 < t) {
+                clearInterval(interval);
+            }
+            object.style[property] = end + cos[t] * way + 'px';
+            t += delta;
+        }, 4);
     }
 
-    function scrollTo(page, milliseconds, delay) { //scrolls to a page in some milliseconds
+    //S-C-R-O-L-L- -T-O
+    function scrollTo(sections, page, milliseconds, delay) { //scrolls to a page in some milliseconds
         let i = 0, current, top, newTop, delaySum = 0, height;
         for (; i < sections.length; ++i) {
             current = sections[i];
@@ -198,9 +200,66 @@
                 window.setTimeout(() => animate(current, 'top', newTop, milliseconds), delaySum);
             }
         }
-
     }
 
+    scrollTo(0, 0); //first draw
+
+    //R-E-S-E-T
+    function reset(object) {
+        animate(object, 'top', 0, 500);
+        animate(object, 'left', 0, 500);
+    }
+
+    //S-C-R-O-L-L
+    let page = 0, oldScroll = 0, oldTime = 0;
+
+    function scroll(sections, keyCode) {
+        if (Date.now() > oldTime + 500) {
+            switch (keyCode) {
+                case 37:
+                    reset(sections[page]);
+                    break;
+                case 38:
+                    if (page < 1) {
+                        reset(sections[page]);
+                    } else {
+                        scrollTo(sections, --page, 1000, 100);
+                    }
+                    break;
+                case 39:
+                    reset(reset[page]);
+                    break;
+                case 40:
+                    if (page > sections.length - 2) {
+                        reset(sections[page]);
+                    } else {
+                        scrollTo(sections, ++page, 1000, 100);
+                    }
+                    break;
+            }
+            oldScroll = window.scrollY;
+            oldTime = Date.now();
+        }
+    }
+
+    /*    function animateBoxes(milliseconds) {
+            let sections = document.getElementsByTagName('section');
+            for (let i = 0; i < sections.length; ++i) {
+                let boxes = sections[i].getElementsByClassName('box');
+                let boxWidth = window.innerWidth / boxes.length;
+                for (let j = 0; j < boxes.length; ++j) {
+                    animate(boxes[j], 'width', boxWidth, milliseconds);
+                    animate(boxes[j], 'left', j * boxWidth, milliseconds);
+                }
+            }
+        }*/
+
+    /*window.onresize = () => {
+        animateBoxes(1000);
+    };
+*/
+    //M-O-U-S-E
+    //TODO: Mouse
 
     //P-L-A-Y- -V-I-D-E-O-S- -O-N- -H-O-V-E-R , SIZE BIGGER
     document.getElementsByTagName('video').onmouseenter = (e) => {
@@ -211,60 +270,6 @@
         let o = e.target;
         o.pause();
     };
-
-    window.onresize = () => {
-        animateBoxes(1000);
-    };
-
-    let sections = document.getElementsByTagName('section');
-    let oldScroll = 0, oldTime = 0;
-
-    sections[0].style.display = 'block';
-    sections[0].style.backgroundColor = 'black';
-    sections[0].style.top = '0px';
-    for (i = 0; i < sections.length; ++i) {
-        sections[i].style.zIndex = 10 - i + '';
-        sections[i].style.height = window.innerHeight - sections.length * 50 + 'px';
-    }
-
-    //T-O-U-C-H
-    let oldX, oldY;
-    window.ontouchstart = (e) => { //stores location of touch start
-        e.preventDefault();
-        oldX = e.touches[0].clientX;
-        oldY = e.touches[0].clientY;
-    };
-    window.ontouchmove = (e) => { //drags, if finger moving
-        drag(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
-    };
-    window.ontouchend = (e) => { //scrolls, if finger released
-        scroll(recognize(oldX - e.changedTouches[0].clientX, oldY - e.changedTouches[0].clientY));
-    };
-
-
-    //W-H-E-E-L
-    window.onwheel = (e) => { //scrolls, if wheel moved
-        scroll(recognize(e.deltaX, e.deltaY));
-    };
-
-    //K-E-Y-S
-
-    document.onkeydown = (e) => { //peeks, if key is down
-        peek(e.keyCode);
-    };
-    document.onkeyup = (e) => { //scrolls, if key is released
-        scroll(e.keyCode);
-    };
-
-    //M-O-U-S-E
-    //TODO: Mouse
-
-    //D-R-A-G
-    function drag(x, y) { //drags current section
-        sections[page].style.top = Math.sqrt(y - oldY) + 'px';
-        sections[page].style.left = Math.sqrt(x - oldX) + 'px';
-    }
-
 
     //R-E-C-O-G-N-I-Z-E
     function recognize(x, y) { //returns keyCode of recognized direction
@@ -287,27 +292,35 @@
         }
     }
 
-    function animate(object, property, end, milliseconds) {
-        let interval,
-            t = 0,
-            delta = 1000 / milliseconds,
-            start = parseInt(window.getComputedStyle(object, null).getPropertyValue(property), 10),
-            way = start - end;
-        object.style.display = 'block';
-        if (delta > 124) {
-            delta = 124;
-        }
-        interval = setInterval(() => {
-            if (124 < t) {
-                clearInterval(interval);
-            }
-            object.style[property] = end + cos[t] * way + 'px';
-            t += delta;
-        }, 4);
+    let sections = document.getElementsByTagName('section');
+
+    //W-H-E-E-L
+    window.onwheel = (e) => { //scrolls, if wheel moved
+        scroll(sections, recognize(e.deltaX, e.deltaY));
+    };
+
+    //D-R-A-G
+    function drag(sections, x, y) { //drags current section
+        sections[page].style.top = Math.sqrt(y - oldY) + 'px';
+        sections[page].style.left = Math.sqrt(x - oldX) + 'px';
     }
 
+    //T-O-U-C-H
+    let oldX, oldY;
+    window.ontouchstart = (e) => { //stores location of touch start
+        e.preventDefault();
+        oldX = e.touches[0].clientX;
+        oldY = e.touches[0].clientY;
+    };
+    window.ontouchmove = (e) => { //drags, if finger moving
+        drag(sections, e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+    };
+    window.ontouchend = (e) => { //scrolls, if finger released
+        scroll(sections, recognize(oldX - e.changedTouches[0].clientX, oldY - e.changedTouches[0].clientY));
+    };
+
     //P-E-E-K
-    function peek(keyCode) { //moves the current section a bit
+    function peek(sections, keyCode) { //moves the current section a bit
         switch (keyCode) {
             case 37:
                 animate(sections[page], 'left', -50, 500);
@@ -324,47 +337,13 @@
         }
     }
 
-    function reset() {
-        animate(sections[page], 'top', 0, 500);
-        animate(sections[page], 'left', 0, 500);
-    }
-
-    function scroll(keyCode) {
-        if (Date.now() > oldTime + 500) {
-            animateBoxes(0);
-            switch (keyCode) {
-                case 37:
-                    reset();
-                    break;
-                case 38:
-                    if (page < 1) {
-                        reset();
-                    } else {
-                        scrollTo(--page, 1000, 100);
-                        /*animate(sections[page], 'left', 0, 1000);
-                        animate(sections[page--], 'top', window.innerHeight - (sections.length - page) * 50, 1000);
-                        window.setTimeout('animate(sections[page], "top", page * 50, 1000)', 100);*/
-
-                    }
-                    break;
-                case 39:
-                    reset();
-                    break;
-                case 40:
-                    if (page > sections.length - 2) {
-                        reset();
-                    } else {
-                        scrollTo(++page, 1000, 100);
-                        /*animate(sections[page], 'left', 0, 1000);
-                        animate(sections[page++], 'top', -window.innerHeight + (page + sections.length) * 50, 1000);
-                        window.setTimeout('animate(sections[page], "top", page * 50, 1000)', 100);*/
-                    }
-                    break;
-            }
-            oldScroll = window.scrollY;
-            oldTime = Date.now();
-        }
-    }
+    //K-E-Y-S
+    document.onkeydown = (e) => { //peeks, if key is down
+        peek(sections, e.keyCode);
+    };
+    document.onkeyup = (e) => { //scrolls, if key is released
+        scroll(sections, e.keyCode);
+    };
 </script>
 </body>
 </html>

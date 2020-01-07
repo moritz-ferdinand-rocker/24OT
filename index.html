@@ -240,6 +240,8 @@
                         scrollTo(sections, ++page, 1000, 100);
                     }
                     break;
+                default:
+                    reset(sections[page]);
             }
             oldScroll = window.scrollY;
             oldTime = Date.now();
@@ -295,6 +297,7 @@
                 return 40;
             }
         }
+        return 0;
     }
 
     //W-H-E-E-L
@@ -317,7 +320,7 @@
     window.ontouchmove = (e) => { //drags, if finger moving
         drag(sections, e.changedTouches[0].clientX, e.changedTouches[0].clientY);
     };
-    window.ontouchend = (e) => { //scrolls, if finger released
+    window.ontouchend = (e) => { //scrolls, if finger releases
         scroll(sections, recognize(oldX - e.changedTouches[0].clientX, oldY - e.changedTouches[0].clientY));
     };
 

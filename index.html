@@ -191,6 +191,8 @@
             } else {
                 newTop = window.innerHeight / 2 - height / 2; //bottom navigation
             }
+            console.log("top:" + top);
+            console.log("newTop: " + newTop);
             if (top !== newTop) { //animate current, if current has to be animated
                 delaySum += delay; //add 100 milliseconds delay per animation
                 window.setTimeout(() => animate(current, 'top', newTop, milliseconds), delaySum);

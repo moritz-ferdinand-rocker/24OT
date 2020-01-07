@@ -307,8 +307,8 @@
 
     //D-R-A-G
     function drag(sections, x, y) { //drags current section
-        sections[page].style.top = Math.sqrt(y - oldY) + 'px';
-        sections[page].style.left = Math.sqrt(x - oldX) + 'px';
+        sections[page].style.top = (y - oldY) / 2 + 'px';
+        sections[page].style.left = (x - oldX) / 2 + 'px';
     }
 
     //T-O-U-C-H

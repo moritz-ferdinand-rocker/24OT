@@ -186,6 +186,7 @@
             current = sections[i];
             top = parseInt(window.getComputedStyle(current, null).getPropertyValue('top'), 10); //get top of current
             height = parseInt(window.getComputedStyle(current, null).getPropertyValue('height'), 10); //get height of current
+            console.log(height);
             if (i < page) {
                 newTop = (i + 1) * 50 - height; //top navigation
             } else if (i > page) {
@@ -193,8 +194,6 @@
             } else {
                 newTop = window.innerHeight / 2 - height / 2; //bottom navigation
             }
-            console.log("top:" + top);
-            console.log("newTop: " + newTop);
             if (top !== newTop) { //animate current, if current has to be animated
                 delaySum += delay; //add 100 milliseconds delay per animation
                 window.setTimeout(() => animate(current, 'top', newTop, milliseconds), delaySum);

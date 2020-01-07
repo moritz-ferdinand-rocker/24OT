@@ -196,11 +196,11 @@
 
 
     //P-L-A-Y- -V-I-D-E-O-S- -O-N- -H-O-V-E-R
-    document.getElementById('video').onmouseenter = (e) => {
+    document.getElementsByTagName('video').onmouseenter = (e) => {
         let o = e.target;
         o.play();
     };
-    document.getElementById('video').onmouseleave = (e) => {
+    document.getElementsByTagName('video').onmouseleave = (e) => {
         let o = e.target;
         o.pause();
     };

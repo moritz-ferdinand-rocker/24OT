@@ -234,10 +234,11 @@
                     reset(sections[page]);
                     break;
                 case 40:
-                    console.log('down');
                     if (page > sections.length - 2) {
+                        console.log('end');
                         reset(sections[page]);
                     } else {
+                        console.log('down');
                         scrollTo(sections, ++page, 1000, 100);
                     }
                     break;

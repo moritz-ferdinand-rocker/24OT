@@ -218,7 +218,6 @@
     let page = 0, oldScroll = 0, oldTime = 0;
 
     function scroll(sections, keyCode) {
-        console.log(keyCode);
         if (Date.now() > oldTime + 500) {
             switch (keyCode) {
                 case 37:
@@ -235,6 +234,7 @@
                     reset(sections[page]);
                     break;
                 case 40:
+                    console.log('down)';
                     if (page > sections.length - 2) {
                         reset(sections[page]);
                     } else {

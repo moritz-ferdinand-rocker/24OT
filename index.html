@@ -197,7 +197,6 @@
                 delaySum += delay; //add 100 milliseconds delay per animation
                 setTimeout(() => {
                     animate(current, 'top', newTop, milliseconds);
-                    console.log("Yay");
                 }, delaySum);
             }
         }
@@ -302,6 +301,7 @@
 
     //W-H-E-E-L
     window.onwheel = (e) => { //scrolls, if wheel moved
+        console.log("Yay");
         scroll(sections, recognize(e.deltaX, e.deltaY));
     };
 

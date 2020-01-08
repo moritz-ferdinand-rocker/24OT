@@ -165,6 +165,7 @@
     }
 
     function animate(object, property, end, milliseconds) {
+        console.log('yay');
         let interval, t = 0, delta = 1000 / milliseconds, start = parseInt(window.getComputedStyle(object, null)
             .getPropertyValue(property), 10), way = start - end;
         if (delta > 124) {
@@ -195,7 +196,6 @@
             }
             if (top !== newTop) { //animate current, if current has to be animated
                 delaySum += delay; //add 100 milliseconds delay per animation
-                console.log(newTop);
                 setTimeout(() => {
                     animate(current, 'top', newTop, milliseconds);
                 }, delaySum);

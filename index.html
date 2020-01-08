@@ -195,6 +195,7 @@
             }
             if (top !== newTop) { //animate current, if current has to be animated
                 delaySum += delay; //add 100 milliseconds delay per animation
+                console.log(newTop);
                 setTimeout(() => {
                     animate(current, 'top', newTop, milliseconds);
                 }, delaySum);
@@ -235,10 +236,8 @@
                     break;
                 case 40:
                     if (page > sections.length - 2) {
-                        console.log('end');
                         reset(sections[page]);
                     } else {
-                        console.log('down');
                         scrollTo(sections, ++page, 1000, 100);
                     }
                     break;

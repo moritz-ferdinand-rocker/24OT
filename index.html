@@ -197,7 +197,8 @@
             if (top !== newTop) { //animate current, if current has to be animated
                 delaySum += delay; //add 100 milliseconds delay per animation
                 setTimeout(() => {
-                    animate(current, 'top', newTop, milliseconds);
+                    current.style.top = -200 + 'px';
+                    //animate(current, 'top', newTop, milliseconds);
                 }, delaySum);
             }
         }

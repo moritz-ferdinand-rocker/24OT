@@ -1,3 +1,7 @@
 <component name="CopyrightManager">
-  <settings default="Moritz Ferdinand Rocker" />
+  <settings default="Moritz Ferdinand Rocker">
+    <LanguageOptions name="__TEMPLATE__">
+      <option name="block" value="false" />
+    </LanguageOptions>
+  </settings>
 </component>

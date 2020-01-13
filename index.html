@@ -180,7 +180,7 @@
 		</video>
 		<h3>Filme.</h3>
 		<h4>Einige Filme von uns.</h4>
-		<p> Manches komplett, manches unterstüzt. </p>
+		<p> Manches kompvart, manches unterstüzt. </p>
 	</div>
 	<div class = 'box'>
 		<video muted>
@@ -227,12 +227,12 @@
 </section>
 <script>
 	//A_N_I_M_A_T_E
-	let cos = new Array(125);
-	for(let i = 0; i < 125; ++i){
+	var cos = new Array(125);
+	for(var i = 0; i < 125; ++i){
 		cos[i] = (1 + Math.cos(Math.PI / 125 * i)) / 2;
 	}
 	function animate(object, property, end, milliseconds){
-		let t     = 0,
+		var t     = 0,
 			delta = 1000 /
 					milliseconds,
 			start = parseInt(
@@ -251,8 +251,8 @@
 	//S_C_R_O_L_L___T_O
 	function scrollTo(sections, page, milliseconds, delay){
 		//Scrolls to a page in some milliseconds
-		let current, top, newTop, delaySum = 0, height;
-		for(let i = 0; i < sections.length; ++i){
+		var current, top, newTop, delaySum = 0, height;
+		for(var i = 0; i < sections.length; ++i){
 			current = sections[i];
 			//Get top of current
 			top = parseInt(window.getComputedStyle(current, null)
@@ -285,9 +285,9 @@
 		}
 	}
 	//Set height for all sections
-	let sections = document.getElementsByTagName('section');
-	for(let i = 0; i < sections.length; ++i){
-		sections[i].style.height =
+	var sections = document.getElementsByTagName('section');
+	for(var j = 0; j < sections.length; ++j){
+		sections[j].style.height =
 			window.innerHeight - sections.length * 50 + 'px';
 	}
 	//Scroll initially to first section
@@ -298,7 +298,7 @@
 		animate(object, 'left', 0, 500);
 	}
 	//S_C_R_O_L_L
-	let page = 0, oldScroll = 0, oldTime = 0;
+	var page = 0, oldScroll = 0, oldTime = 0;
 	function scroll(sections, keyCode){
 		if(Date.now() > oldTime + 500){
 			switch(keyCode){
@@ -334,11 +334,11 @@
 		}
 	}
 	function animateBoxes(milliseconds){
-		let sections = document.getElementsByTagName('section');
-		for(let i = 0; i < sections.length; ++i){
-			let boxes = sections[i].getElementsByClassName('box');
-			let boxWidth = window.innerWidth / boxes.length;
-			for(let j = 0; j < boxes.length; ++j){
+		var sections = document.getElementsByTagName('section');
+		for(var i = 0; i < sections.length; ++i){
+			var boxes = sections[i].getElementsByClassName('box');
+			var boxWidth = window.innerWidth / boxes.length;
+			for(var j = 0; j < boxes.length; ++j){
 				animate(boxes[j], 'width', boxWidth, milliseconds);
 				animate(boxes[j], 'left', j * boxWidth, milliseconds);
 			}
@@ -353,11 +353,11 @@
 	//TODO: Mouse
 	//H_O_V_E_R
 	document.getElementsByTagName('video').onmouseenter = (e) => {
-		let o = e.target;
+		var o = e.target;
 		o.play();
 	};
 	document.getElementsByTagName('video').onmouseleave = (e) => {
-		let o = e.target;
+		var o = e.target;
 		o.pause();
 	};
 	//R-E-C-O-G-N-I-Z-E
@@ -392,14 +392,14 @@
 		sections[page].style.left = (x - oldX) / 10 + 'px';
 	}
 	//____T_O_U_C_H
-	let oldX, oldY;
+	var oldX, oldY;
 	window.ontouchstart = (e) => {
 		//Store location of touch start
 		oldX = e.touches[0].clientX;
 		oldY = e.touches[0].clientY;
 	};
 	window.ontouchmove = (e) => {
-		//Drag, if finger moving
+		//Drag, if finger is moving
 		drag(sections, e.changedTouches[0].clientX,
 			 e.changedTouches[0].clientY);
 	};
@@ -437,7 +437,7 @@
 		}
 	}
 	//____K_E_Y
-	let keyUp = true;
+	var keyUp = true;
 	document.onkeydown = (e) => {
 		//Peek, if key is down
 		if(keyUp){

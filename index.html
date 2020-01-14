@@ -254,12 +254,12 @@
 		</section>
 		<script>
 			//A_N_I_M_A_T_E
-			var spline = new Array(125);
-			for(var i = 0; i < 125; ++i){
+			const spline = new Array(125);
+			for(let i = 0; i < 125; ++i){
 				spline[i] = (1 + Math.cos(Math.PI / 125 * i)) / 2;
 			}
 			function animate(object, property, end, milliseconds){
-				var t = 0, delta = 1000 / milliseconds,
+				let t = 0, delta = 1000 / milliseconds,
 				    start        = parseInt(window.getComputedStyle(object, null)
 				                           .getPropertyValue(property), 10),
 				    way          = start - end, interval;
@@ -271,16 +271,16 @@
 				}, 4);
 			}
 			//S_C_R_O_L_L___T_O
-			var oldScroll = 0, oldTime = 0;
+			let oldScroll = 0, oldTime = 0;
 			function scrollTo(sections, page){
-				var milliseconds = 1000, delay = 100, current, top, newTop,
+				let milliseconds = 1000, delay = 100, current, top, newTop,
 				    delaySum                   = 0, height;
 				if(Date.now() <= oldTime + milliseconds){
 					return;
 				}
 				//Scrolls to a page in some milliseconds
 				console.log(page);
-				for(var i = 0; i < sections.length; ++i){
+				for(let i = 0; i < sections.length; ++i){
 					current = sections[i];
 					//Get top of current
 					top = parseInt(window.getComputedStyle(current, null)
@@ -316,8 +316,8 @@
 				oldTime = Date.now();
 			}
 			//Set height for all sections
-			var sections = document.getElementsByTagName('section');
-			for(var j = 0; j < sections.length; ++j){
+			const sections = document.getElementsByTagName('section');
+			for(let j = 0; j < sections.length; ++j){
 				sections[j].style.height =
 					window.innerHeight - sections.length * 50 + 'px';
 			}
@@ -329,7 +329,7 @@
 				animate(object, 'left', 0, 500);
 			}
 			//S_C_R_O_L_L
-			var page = 0;
+			const page = 0;
 			function scroll(sections, page, keyCode){
 				switch(keyCode){
 					case 37:
@@ -360,12 +360,11 @@
 						reset(sections[page]);
 				}
 			}
-			function animateBoxes(milliseconds){
-				var sections = document.getElementsByTagName('section');
-				for(var i = 0; i < sections.length; ++i){
-					var boxes = sections[i].getElementsByClassName('box');
-					var boxWidth = window.innerWidth / boxes.length;
-					for(var j = 0; j < boxes.length; ++j){
+			function animateBoxes(sections, milliseconds){
+				for(let i = 0; i < sections.length; ++i){
+					const boxes = sections[i].getElementsByClassName('box');
+					const boxWidth = window.innerWidth / boxes.length;
+					for(let j = 0; j < boxes.length; ++j){
 						animate(boxes[j], 'width', boxWidth, milliseconds);
 						animate(boxes[j], 'left', j * boxWidth, milliseconds);
 					}
@@ -373,18 +372,18 @@
 			}
 			animateBoxes(0);
 			window.onresize = () => {
-				animateBoxes(1000);
+				animateBoxes(sections, 1000);
 			};
 			//L_I_S_T_E_N_E_R_S
 			//____M-O-U-S-E
 			//TODO: Mouse
 			//H_O_V_E_R
 			document.getElementsByTagName('video').onmouseenter = (e) => {
-				var o = e.target;
+				const o = e.target;
 				o.play();
 			};
 			document.getElementsByTagName('video').onmouseleave = (e) => {
-				var o = e.target;
+				const o = e.target;
 				o.pause();
 			};
 			//R-E-C-O-G-N-I-Z-E
@@ -424,7 +423,7 @@
 				object.style.left = (x - oldX) / 10 + 'px';
 			}
 			//____T_O_U_C_H
-			var oldX, oldY;
+			let oldX, oldY;
 			window.ontouchstart = (e) => {
 				//Store location of touch start
 				oldX = e.touches[0].clientX;
@@ -472,7 +471,7 @@
 				}
 			}
 			//____K_E_Y
-			var keyUp = true;
+			let keyUp = true;
 			document.onkeydown = (e) => {
 				//Peek, if key is down
 				if(keyUp){

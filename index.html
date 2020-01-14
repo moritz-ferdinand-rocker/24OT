@@ -272,7 +272,7 @@
 			}
 			//S_C_R_O_L_L___T_O
 			function scrollTo(sections, page, milliseconds, delay){
-				if(Date.now() < oldTime + 500){
+				if(Date.now() <= oldTime + milliseconds){
 					return;
 				}
 				//Scrolls to a page in some milliseconds
@@ -288,7 +288,8 @@
 					//Calculate newTop
 					//____Top navigation
 					if(i < page){
-						newTop = (i + 1) * 50 - height;
+						//newTop = (i + 1) * 50 - height;
+						newTop = (i + 1) * 50 - 491;
 					}
 					//____Current page
 					else if(i > page){
@@ -478,7 +479,6 @@
 					keyUp = true;
 				}
 			};
-			scrollTo(sections, 1, 1000, 100);
 		</script>
 	</body>
 </html>

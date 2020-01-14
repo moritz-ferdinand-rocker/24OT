@@ -314,10 +314,9 @@
 				}, 4);
 			}
 			//S_C_R_O_L_L___T_O
-			let delaySum = 0;
 			function scrollTo(sections, page){
 				let i = 0, milliseconds = 500, delay = 100, current, top,
-				    newTop, height;
+				    newTop, delaySum                 = 0, height;
 				//Scrolls to a page in some milliseconds
 				for(; i < sections.length; ++i){
 					current = sections[i];

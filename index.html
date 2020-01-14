@@ -316,17 +316,17 @@
 			}
 
 			//S_C_R_O_L_L___T_O
-			/*	function scrollTo(sections, page){
-                    let i = 0, milliseconds = 500, delay = 100, current, top,
-                        newTop, delaySum                 = 0, height;
-                    //Scrolls to a page in some milliseconds
-                    for(; i < sections.length; ++i){
-                        current = sections[i];
-                        //Get top of current
-                        top = getValue(current, 'top');
-                        //Get height of current
-                        height = getValue(current, 'height');
-                        //Calculate newTop
+			function scrollTo(sections, page) {
+				let i = 0, milliseconds = 500, delay = 100, current, top,
+						newTop, delaySum = 0, height;
+				//Scrolls to a page in some milliseconds
+				for (; i < sections.length; ++i) {
+					current = sections[i];
+					//Get top of current
+					top = getValue(current, 'top');
+					//Get height of current
+					height = getValue(current, 'height');
+					//Calculate newTop
                         //____Top navigation
                         if(i < page){
                             newTop = (i + 1) * 50 - height;
@@ -351,7 +351,7 @@
                         }
                     }
                 }
-                */
+
 			//Set height for all sections
 			const sections = document.getElementsByTagName('section');
 			for (let j = 0; j < sections.length; ++j) {

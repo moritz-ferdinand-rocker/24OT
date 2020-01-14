@@ -182,7 +182,7 @@
 				</video>
 				<h3>Filme.</h3>
 				<h4>Einige Filme von uns.</h4>
-				<p> Manches kompvart, manches unterstüzt.</p>
+				<p> Manches kompvart, manches unterstützt.</p>
 			</div>
 			<div class = 'box'>
 				<video muted>
@@ -258,11 +258,14 @@
 			for(let i = 0; i < 125; ++i){
 				spline[i] = (1 + Math.cos(Math.PI / 125 * i)) / 2;
 			}
+			function getValue(object, property){
+				return parseInt(window.getComputedStyle(object, null)
+				                      .getPropertyValue(property), 10);
+			}
 			function animate(object, property, end, milliseconds){
-				let t = 0, delta = 1000 / milliseconds,
-				    start        = parseInt(window.getComputedStyle(object, null)
-				                           .getPropertyValue(property), 10),
-				    way          = start - end, interval;
+				let t                                       = 0, delta = 1000 / milliseconds,
+				    start = getValue(object, property), way = start - end,
+				    interval;
 				if(delta > 124) delta = 124;
 				interval = setInterval(() => {
 					if(124 < t) clearInterval(interval);
@@ -271,23 +274,17 @@
 				}, 4);
 			}
 			//S_C_R_O_L_L___T_O
-			let oldScroll = 0, oldTime = 0;
 			function scrollTo(sections, page){
-				let milliseconds = 1000, delay = 100, current, top, newTop,
-				    delaySum                   = 0, height;
-				if(Date.now() <= oldTime + milliseconds){
-					return;
-				}
+				let i = 0, milliseconds = 1000, delay = 100, current, top,
+				    newTop, delaySum                  = 0, height;
 				//Scrolls to a page in some milliseconds
 				console.log(page);
-				for(let i = 0; i < sections.length; ++i){
+				for(; i < sections.length; ++i){
 					current = sections[i];
 					//Get top of current
-					top = parseInt(window.getComputedStyle(current, null)
-					                     .getPropertyValue('top'), 10);
+					top = getValue(current, 'top');
 					//Get height of current
-					height = parseInt(window.getComputedStyle(current, null)
-					                        .getPropertyValue('height'), 10);
+					height = getValue(current, 'height');
 					//Calculate newTop
 					//____Top navigation
 					if(i < page){
@@ -312,8 +309,6 @@
 						}, delaySum);
 					}
 				}
-				oldScroll = window.scrollY;
-				oldTime = Date.now();
 			}
 			//Set height for all sections
 			const sections = document.getElementsByTagName('section');
@@ -329,8 +324,11 @@
 				animate(object, 'left', 0, 500);
 			}
 			//S_C_R_O_L_L
-			let page = 0;
+			let oldTime = 0, page = 0;
 			function scroll(sections, keyCode){
+				if(Date.now() <= oldTime + 1100){
+					return;
+				}
 				switch(keyCode){
 					case 37:
 						//LEFT
@@ -359,12 +357,14 @@
 					default:
 						reset(sections[page]);
 				}
+				oldTime = Date.now();
 			}
 			function animateBoxes(sections, milliseconds){
-				for(let i = 0; i < sections.length; ++i){
-					const boxes = sections[i].getElementsByClassName('box');
-					const boxWidth = window.innerWidth / boxes.length;
-					for(let j = 0; j < boxes.length; ++j){
+				let i = 0, boxes, boxWidth, j = 0;
+				for(; i < sections.length; ++i){
+					boxes = sections[i].getElementsByClassName('box');
+					boxWidth = window.innerWidth / boxes.length;
+					for(j = 0; j < boxes.length; ++j){
 						animate(boxes[j], 'width', boxWidth, milliseconds);
 						animate(boxes[j], 'left', j * boxWidth, milliseconds);
 					}
@@ -444,28 +444,20 @@
 				//Move the current object a bit
 				switch(keyCode){
 					case 37:
-						animate(object, 'left',
-						        parseInt(window.getComputedStyle(object, null)
-						                       .getPropertyValue('left'), 10) -
-						        50, 500);
+						animate(object, 'left', getValue(object, 'left') - 50,
+						        500);
 						break;
 					case 38:
-						animate(object, 'top',
-						        parseInt(window.getComputedStyle(object, null)
-						                       .getPropertyValue('top') + 50,
-						                 10), 500);
+						animate(object, 'top', getValue(object, 'top') + 50,
+						        500);
 						break;
 					case 39:
-						animate(object, 'left',
-						        parseInt(window.getComputedStyle(object, null)
-						                       .getPropertyValue('left'), 10) +
-						        50, 500);
+						animate(object, 'left', getValue(object, 'left') + 50,
+						        500);
 						break;
 					case 40:
-						animate(object, 'top',
-						        parseInt(window.getComputedStyle(object, null)
-						                       .getPropertyValue('top'), 10) -
-						        50, 500);
+						animate(object, 'top', getValue(object, 'top') - 50,
+						        500);
 						break;
 				}
 			}

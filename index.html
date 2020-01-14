@@ -413,7 +413,8 @@
 							if(pageTemp < page) up = true;
 						}
 				}
-				scrollTo(up ? sections.reverse() : sections, page);
+				scrollTo(up ? sections.reverse() : sections,
+				         up ? 5 - page : page);
 				oldTime = Date.now();
 			}
 			function animateBoxes(sections){

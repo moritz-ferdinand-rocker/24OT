@@ -277,6 +277,7 @@
 				}
 				//Scrolls to a page in some milliseconds
 				var current, top, newTop, delaySum = 0, height;
+				console.log(page);
 				for(var i = 0; i < sections.length; ++i){
 					current = sections[i];
 					//Get top of current
@@ -288,8 +289,7 @@
 					//Calculate newTop
 					//____Top navigation
 					if(i < page){
-						//newTop = (i + 1) * 50 - height;
-						newTop = (i + 1) * 50 - 491;
+						newTop = (i + 1) * 50 - height;
 					}
 					//____Current page
 					else if(i > page){

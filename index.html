@@ -324,7 +324,7 @@
 			//S_C_R_O_L_L___T_O
 			function scrollTo(sections, page){
 				let i = 0, milliseconds = 500, delay = 100, current, top,
-				    newTop, delaySum                 = 0, height;
+				    newTop, delaySum                 = 0, height, zIndex;
 				//Scrolls to a page in some milliseconds
 				for(; i < sections.length; ++i){
 					current = sections[i];
@@ -336,15 +336,18 @@
 					//____Top navigation
 					if(i < page){
 						newTop = (i + 1) * 50 - height;
+						zIndex = sections.length - 2 - i;
 					}
 					//____Bottom navigation
 					else if(i > page){
 						newTop =
 							window.innerHeight - (sections.length - i) * 50;
+						zIndex = i - 1;
 					}
 					//____Current page
 					else{
 						newTop = i * 50;
+						zIndex = 5;
 					}
 					//Animate current, if current has to be animated
 					if(top !== newTop){
@@ -354,6 +357,7 @@
 						//setTimeout(() => {
 						animate(current, 'top', newTop, milliseconds);
 						animate(current, 'left', 0, milliseconds);
+						current.style.zIndex = zIndex;
 						//}, delaySum);
 					}
 				}
@@ -367,6 +371,7 @@
 					window.innerHeight - (sections.length - 1) * 50 + 'px';
 				sections[j].onclick = () => {
 					scrollTo(sections, j);
+					page = j;
 				};
 			}
 			//Scroll initially to first section

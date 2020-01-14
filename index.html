@@ -428,18 +428,22 @@
 				//Move the current object a bit
 				switch(keyCode){
 					case 37:
+						//Left
 						animate(object, 'left', getValue(object, 'left') - 50,
 						        500);
 						break;
 					case 38:
+						//Up
 						animate(object, 'top', getValue(object, 'top') + 50,
 						        500);
 						break;
 					case 39:
+						//Right
 						animate(object, 'left', getValue(object, 'left') + 50,
 						        500);
 						break;
 					case 40:
+						//Down
 						animate(object, 'top', getValue(object, 'top') - 50,
 						        500);
 						break;
@@ -448,7 +452,7 @@
 			//____K_E_Y
 			let keyUp = true;
 			document.onkeydown = (e) => {
-				//Peek, if key is down
+				//Peek, if key is pressed
 				if(keyUp){
 					peek(sections[page], e.keyCode);
 					keyUp = false;

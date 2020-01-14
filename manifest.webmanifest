@@ -1,0 +1,12 @@
+{
+	"name": "24OliveTrees",
+	"short_name": "24OT",
+	"start_url": ".",
+	"background_color": "#000000",
+	"description": "Filmproduktion aus Bremen",
+	"dir": "ltr",
+	"lang": "de",
+	"display": "standalone",
+	"orientation": "portrait-primary",
+	"theme_color": "#ff8000"
+}

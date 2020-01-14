@@ -1,360 +1,513 @@
+<!-- Copyright Moritz Ferdinand Rocker 2020. -->
 <!DOCTYPE html>
-<html lang="de">
-<head>
-    <link href="stylesheet.css" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport">
-    <meta content="24OliveTrees" name="title">
-    <meta content="Hanns Simon Günther & Moritz Ferdinand Rocker" name="author">
-    <meta content="2019-10-23" name="date">
-    <meta content="" name="Description">
-    <meta content="24OliveTrees, 24OT, Musicvideo, Imagefilm, Commercial, Bremen, Videoproduktion" name="Keywords">
-    <meta content="all" name="robots">
-    <title>24OliveTrees</title>
-</head>
-<body>
-<section id="showreel">
-    <h2>Showreel.</h2>
-    <video autoplay id="header-video" loop muted>
-        <source src="Videos/Showreel.mp4" type="video/mp4">
-    </video>
-    <!--   <img alt="logo" id="logo" src="logo.svg"/>-->
-</section>
-<section id="portfolio">
-    <h2>Portfolio.</h2>
-    <div class="box" id="musikvideos">
-        <video class="refV" id="video" muted>
-            <source src="Videos/Musikvideos.mp4" type="video/mp4">
-        </video>
-        <h3>Musikvideos</h3>
-        <h4>Ob Pop, Klassik oder Rap, </h4>
-        <h5> Musikvideos sind Geil.</h5>
-        <p>Hier gibts ein paar Beispiele.</p>
-        <div class="grid" id="musikvideo_grid">
-            <video class="refV" id="video" muted>
-                <source src="Videos/Musikvideos%20-%20Beispiel.mp4" type="video/mp4">
-            </video>
-            <video class="refV" id="video" muted>
-                <source src="Videos/Musikvideos%20-%20Beispiel.mp4" type="video/mp4">
-            </video>
-            <video class="refV" id="video" muted>
-                <source src="Videos/Musikvideos%20-%20Beispiel.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
-    <div class="box" id="unternehmensfilme">
-        <video class="refV" muted>
-            <source src="Videos/Unternehmensfilm.mp4" type="video/mp4">
-        </video>
-        <h3>Unternehmensfilme</h3>
-        <h4>Image-.Messe-,Recruiting-</h4>
-        <h5>Wir machen den Film, den Ihr Unternehmen braucht.</h5>
-        <p>Imagefilme sind aus der heutigen Welt nicht mehr wegzudenken. Es gibt keine bessere Möglichkeit, den Geist
-            einer Firma darzustellen. Wir beraten Sie für Ihre Videoproduktion individuell.</p>
-    </div>
-    <div class="box" id="produktfilme">
-        <video class="refV" muted>
-            <source src="Videos/Produktfilme%20-%20Werbung.mp4" type="video/mp4">
-        </video>
-        <h3>Werbung/Produktfilme</h3>
-        <h4>Werbung.</h4>
-        <h5>Eine Hass-Liebe</h5>
-        <p>Viele hassen sie. Alle wollen sie. Wir machen sie.</p>
-    </div>
-</section>
-<section id="wir sind">
-    <h2>Wir sind.</h2>
-    <div class="box" id="wir sind">
-        <video class="refV" id="video" muted>
-            <source src="Videos/Wir%20sind%20-%20Alle.mp4" type="video/mp4">
-        </video>
-        <h4> 24OLIVETREES oder 24OT. </h4>
-        <h5>(/twenty-fourOT/)</h5>
-        <p> Aus Bremen. Jung. Modern. Filmemacher und co. Wir bieten von Konzeption bis Vertrieb alles, was man aus
-            (Bewegt-)Bildern machen kann.
-            Wir haben einen riesigen Pool an Medienschaffenden, und so immer die richtigen Menschen für Sie und Ihr
-            Projekt. Aber lernen Sie hier erstmal die kennen, die eh alles machen. </p>
-        <div class="grid" id="wir sind">
-            <h3>Paulo</h3>
-            <p id="paulo">Creative Direktor. Regie.</p>
-            <video class="refV" id="video" muted>
-                <source src="Videos/Wir%20sind%20-%20Paulo.mp4" type="video/mp4">
-            </video>
-            <h3>Simon</h3>
-            <p id="simon">Projektleitung. Kamera.</p>
-            <video class="refV" id="video" muted>
-                <source src="Videos/Wir%20sind%20-%20Simon.mp4" type="video/mp4">
-            </video>
-            <h3>Tilman</h3>
-            <p id="tilman">Geschäftsführung. Kamera.</p>
-            <video class="refV" id="video" muted>
-                <source src="Videos/Wir%20sind-%20Tilman.mp4" type="video/mp4">
-            </video>
-            <h3>Moritz</h3>
-            <p id="Moritz">Projektleitung. Ton.</p>
-            <video class="refV" id="video" muted>
-                <source src="Videos/Wir%20sind-%20Moritz.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
-</section>
-<section id="narrativ">
-    <h2>Filmemacher!</h2>
-    <div class="box" id="narrativ">
-        <video class="refV" muted>
-            <source src="Videos/Narrativ.mp4" type="video/mp4">
-        </video>
-        <h3>Filme.</h3>
-        <h4>Einige Filme von uns.</h4>
-        <p> Manches komplett, manches unterstüzt. </p>
-    </div>
-    <div class="box" id="bts">
-        <video class="refV" muted>
-            <source src="Videos/BTS.mp4" type="video/mp4">
-        </video>
-        <h3>Und wie sie gemacht werden.</h3>
-        <h4>Die geheimen Tipps und Tricks.</h4>
-        <p id="bts">Um mit Bewegtbild zu verzaubern, müssen viele Opfer gebracht werden. Hier mehr dazu.</p>
-        <p id="achja"> Ach ja. Blicke hinter die Kulissen und Technik gibt es hier auch.</p>
-
-        <div class="grid" id="bts_grid">
-            <video class="refV" id="video" muted>
-                <source src="Videos/BTS-Beispiel.mp4" type="video/mp4">
-            </video>
-            <video class="refV" id="video" muted>
-                <source src="Videos/BTS-Beispiel2.mp4" type="video/mp4">
-            </video>
-            <video class="refV" id="video" muted>
-                <source src="Videos/BTS-Beispiel3.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
-
-</section>
-<section id="kontakt">
-    <div class="box" id="kontakt">
-        <h4>Wir wollen Sie!</h4>
-        <h5>Melden Sie sich!</h5>
-        <p>Wir sind gerne für Anfragen aller Art und kostenfreien Beratungsgesprächen da. Kontaktieren Sie uns gerne per
-            Mail oder Telefon!</p>
-    </div>
-
-</section>
-<section id="impressum">
-    <h2>Impressum</h2>
-    <p id="impressum">24OliveTrees MEDIA UG (haftungsbeschränkt)<br/>
-        Tietjenstr. 2<br/>
-        28359 Bremen<br/>
-        +49 421 9896 4620<br/>
-        hello@24olivetrees.com<br/>
-        24olivetrees.com<br/>
-        <br/>
-        Amtsgericht Bremen: HRB 34903 HB<br/>
-        USt-ID: DE326107002<br/>
-        Geschäftsführer: Tilman Görlitz<br/>
-        Geschäftszeiten: montags bis freitags, 9 - 17 Uhr<br/>
-        <br/>
-        Verantwortlich für den Inhalt der Seite: Moritz Rocker<br/></p>
-</section>
-
-<script>
-    //A-N-I-M-A-T-E
-    let cos = new Array(125);
-    for (let i = 0; i < 125; ++i) {
-        cos[i] = (1 + Math.cos(Math.PI / 125 * i)) / 2;
-    }
-
-    function animate(object, property, end, milliseconds) {
-        let interval, t = 0, delta = 1000 / milliseconds, start = parseInt(window.getComputedStyle(object, null)
-            .getPropertyValue(property), 10), way = start - end;
-        if (delta > 124) {
-            delta = 124;
-        }
-        interval = setInterval(() => {
-            if (124 < t) {
-                clearInterval(interval);
-            }
-            object.style[property] = end + cos[t] * way + 'px';
-            t += delta;
-        }, 4);
-    }
-
-    //S-C-R-O-L-L- -T-O
-    function scrollTo(sections, page, milliseconds, delay) { //scrolls to a page in some milliseconds
-        let i = 0, current, top, newTop, delaySum = 0, height;
-        for (; i < sections.length; ++i) {
-            current = sections[i];
-            top = parseInt(window.getComputedStyle(current, null).getPropertyValue('top'), 10); //get top of current
-            height = parseInt(window.getComputedStyle(current, null).getPropertyValue('height'), 10); //get height of current
-            if (i < page) {
-                newTop = (i + 1) * 50 - height; //top navigation
-                console.log(newTop);
-
-            } else if (i > page) {
-                newTop = window.innerHeight - (sections.length - i) * 50; //current page
-            } else {
-                newTop = window.innerHeight / 2 - height / 2; //bottom navigation
-            }
-            if (top !== newTop) { //animate current, if current has to be animated
-                delaySum += delay; //add 100 milliseconds delay per animation
-                window.setTimeout(() => animate(current, 'top', newTop, milliseconds), delaySum);
-            }
-        }
-    }
-
-    //F-I-R-S-T- -D-R-A-W
-    scrollTo(0, 0);
-
-    //R-E-S-E-T
-    function reset(object) {
-        animate(object, 'top', 0, 500);
-        animate(object, 'left', 0, 500);
-    }
-
-    //S-C-R-O-L-L
-    let page = 0, oldScroll = 0, oldTime = 0;
-
-    function scroll(sections, keyCode) {
-        if (Date.now() > oldTime + 500) {
-            switch (keyCode) {
-                case 37:
-                    reset(sections[page]);
-                    break;
-                case 38:
-                    if (page < 1) {
-                        reset(sections[page]);
-                    } else {
-                        scrollTo(sections, --page, 1000, 100);
-                    }
-                    break;
-                case 39:
-                    reset(reset[page]);
-                    break;
-                case 40:
-                    if (page > sections.length - 2) {
-                        reset(sections[page]);
-                    } else {
-                        scrollTo(sections, ++page, 1000, 100);
-                    }
-                    break;
-            }
-            oldScroll = window.scrollY;
-            oldTime = Date.now();
-        }
-    }
-
-    /*    function animateBoxes(milliseconds) {
-            let sections = document.getElementsByTagName('section');
-            for (let i = 0; i < sections.length; ++i) {
-                let boxes = sections[i].getElementsByClassName('box');
-                let boxWidth = window.innerWidth / boxes.length;
-                for (let j = 0; j < boxes.length; ++j) {
-                    animate(boxes[j], 'width', boxWidth, milliseconds);
-                    animate(boxes[j], 'left', j * boxWidth, milliseconds);
-                }
-            }
-        }*/
-
-    /*window.onresize = () => {
-        animateBoxes(1000);
-    };
-*/
-    //M-O-U-S-E
-    //TODO: Mouse
-
-    //P-L-A-Y- -V-I-D-E-O-S- -O-N- -H-O-V-E-R , SIZE BIGGER
-    document.getElementsByTagName('video').onmouseenter = (e) => {
-        let o = e.target;
-        o.play();
-    };
-    document.getElementsByTagName('video').onmouseleave = (e) => {
-        let o = e.target;
-        o.pause();
-    };
-
-    //R-E-C-O-G-N-I-Z-E
-    function recognize(x, y) { //returns keyCode of recognized direction
-        //TODO Optimize gesture recognition
-        if (y > -20 && y < 20) {
-            if (x < -50) {
-                return 37;
-            }
-            if (x > 50) {
-                return 39;
-            }
-
-        }
-        if (x > -20 && x < 20) {
-            if (y < -50) {
-                return 38;
-            }
-            if (y > 50) {
-                return 40;
-            }
-        }
-    }
-
-    let sections = document.getElementsByTagName('section');
-    for (let i = 0; i < sections.length; ++i) {
-        sections[i].style.height = window.innerHeight - sections.length * 50 + 'px';
-    }
-
-    //W-H-E-E-L
-    window.onwheel = (e) => { //scrolls, if wheel moved
-        scroll(sections, recognize(e.deltaX, e.deltaY));
-    };
-
-    //D-R-A-G
-    function drag(sections, x, y) { //drags current section
-        sections[page].style.top = Math.sqrt(y - oldY) + 'px';
-        sections[page].style.left = Math.sqrt(x - oldX) + 'px';
-    }
-
-    //T-O-U-C-H
-    let oldX, oldY;
-    window.ontouchstart = (e) => { //stores location of touch start
-        oldX = e.touches[0].clientX;
-        oldY = e.touches[0].clientY;
-    };
-    window.ontouchmove = (e) => { //drags, if finger moving
-        drag(sections, e.changedTouches[0].clientX, e.changedTouches[0].clientY);
-    };
-    window.ontouchend = (e) => { //scrolls, if finger released
-        scroll(sections, recognize(oldX - e.changedTouches[0].clientX, oldY - e.changedTouches[0].clientY));
-    };
-
-    //P-E-E-K
-    function peek(sections, keyCode) { //moves the current section a bit
-        switch (keyCode) {
-            case 37:
-                animate(sections[page], 'left', -50, 500);
-                break;
-            case 38:
-                animate(sections[page], 'top', 50 * page + 50, 500);
-                break;
-            case 39:
-                animate(sections[page], 'left', 50, 500);
-                break;
-            case 40:
-                animate(sections[page], 'top', 50 * page - 50, 500);
-                break;
-        }
-    }
-
-    //K-E-Y-S
-    let keyUp = true;
-    document.onkeydown = (e) => { //peeks, if key is down
-        if (keyUp) {
-            peek(sections, e.keyCode);
-            keyUp = false;
-        }
-    };
-    document.onkeyup = (e) => { //scrolls, if key is released
-        if (!keyUp) {
-            scroll(sections, e.keyCode);
-            keyUp = true;
-        }
-    };
-</script>
-</body>
+<html lang = 'de'>
+	<head>
+		<meta charset = 'UTF-8'>
+		<meta content = 'width=device-width, initial-scale=1.0'
+		      name = 'viewport'>
+		<meta content = '24OliveTrees' name = 'title'>
+		<meta content = 'Hanns Simon Günther & Moritz Ferdinand Rocker'
+		      name = 'author'>
+		<meta content = '2020-01-13' name = 'date'>
+		<meta content = 'Filmproduktion aus Bremen' name = 'Description'>
+		<meta content = '24OliveTrees, 24OT, Musicvideo, Imagefilm, Commercial, Bremen, Videoproduktion'
+		      name = 'Keywords'>
+		<meta content = 'all' name = 'robots'>
+		<link href = '/wip/manifest.webmanifest' rel = 'manifest'>
+		<link href = '/favicon.ico' rel = 'shortcut icon' type = 'image/x-icon'>
+		<meta content = '#ffff00' name = 'theme-color'>
+		<title>24OliveTrees</title>
+		<style>
+			html, body{
+				background-color : #000000;
+				font-family      : Raleway, sans-serif;
+				font-size        : 13px;
+				height           : 100%;
+				margin           : 0;
+				overflow         : hidden;
+			}
+			::-webkit-scrollbar{
+				display : none;
+			}
+			section{
+				background-color : grey;
+				left             : 0;
+				overflow         : hidden;
+				position         : fixed;
+				width            : 100%;
+			}
+			video{
+				height     : 100%;
+				object-fit : cover;
+				width      : 100%;
+			}
+			.box{
+				height   : 100%;
+				position : relative; /* ?? */
+				top      : 0;
+			}
+			h1, h2, h3, p{
+				color    : white;
+				left     : 0;
+				margin   : 0;
+				position : absolute;
+				top      : 0;
+			}
+			h1{
+				font-size : 30px;
+			}
+			h3{
+				font-size    : 20px;
+				writing-mode : vertical-rl;
+			}
+			h2{
+				font-size : 25px;
+			}
+			p{
+				color : white;
+			}
+			video{
+				filter     : brightness(50%);
+				transition : transform .5s, filter 1.5s ease-in-out;
+			}
+			video:hover{
+				filter    : brightness(100%);
+				transform : scale(1.1);
+			}
+		</style>
+	</head>
+	<body>
+		<!--S_H_O_W_R_E_E_L-->
+		<section>
+			<!-- <img /> -->
+			<template>
+				<h2>Showreel.</h2>
+				<video autoplay id = 'header-video' loop muted>
+					<source src = 'Videos/Showreel.mp4' type = 'video/mp4'>
+				</video>
+			</template>
+		</section>
+		<!--P_O_R_T_F_O_L_I_O-->
+		<section>
+			<h2>Portfolio</h2>
+			<!-- <img /> -->
+			<template>
+				<div class = 'box'>
+					<h3>Musikvideos</h3>
+					<!-- <img /> -->
+					<template>
+						<p>Hier gibts ein paar Beispiele.</p>
+					</template>
+				</div>
+				<div class = 'box'>
+					<!-- <img /> -->
+					<template>
+						<video muted>
+							<source src = 'Videos/Unternehmensfilm.mp4'
+							        type = 'video/mp4'>
+						</video>
+						<h3>Unternehmensfilme</h3>
+						<h4>Image-.Messe-,Recruiting-</h4>
+						<h5>Wir machen den Film, den Ihr Unternehmen braucht.
+						</h5>
+						<p>Imagefilme sind aus der heutigen Welt nicht mehr
+						   wegzudenken. Es gibt keine bessere Möglichkeit, den
+						   Geist einer Firma darzustellen. Wir beraten Sie für
+						   Ihre Videoproduktion individuell.
+						</p>
+					</template>
+				</div>
+				<div class = 'box'>
+					<!-- <img /> -->
+					<template>
+						<video muted>
+							<source src = 'Videos/Produktfilme%20-%20Werbung.mp4'
+							        type = 'video/mp4'>
+						</video>
+						<h3>Werbung/Produktfilme</h3>
+						<h4>Werbung.</h4>
+						<h5>Eine Hass-Liebe</h5>
+						<p>Viele hassen sie. Alle wollen sie. Wir machen sie.
+						</p>
+					</template>
+				</div>
+			</template>
+		</section>
+		<!--W_I_R_ _S_I_N_D-->
+		<section>
+			<h2>Wir sind</h2>
+			<!-- <img /> -->
+			<template>
+				<div class = 'box'>
+					<h3>Team</h3>
+					<!-- <img /> -->
+					<template>
+						<video muted>
+							<source src = 'Videos/Wir%20sind%20-%20Alle.mp4'
+							        type = 'video/mp4'>
+						</video>
+						<p> Aus Bremen. Jung. Modern. Filmemacher und co. Wir
+						    bieten von Konzeption bis Vertrieb alles, was man
+						    aus (Bewegt-)Bildern machen kann. Wir haben einen
+						    riesigen Pool an Medienschaffenden und so immer die
+						    richtigen Menschen für Sie und Ihr Projekt. Aber
+						    lernen Sie hier erstmal die kennen, die eh alles
+						    machen.
+						</p>
+					</template>
+				</div>
+				<div class = 'box'>
+					<h3>Paulo</h3>
+					<!-- <img /> -->
+					<template>
+						<video muted>
+							<source src = 'Videos/Wir%20sind%20-%20Paulo.mp4'
+							        type = 'video/mp4'>
+						</video>
+					</template>
+				</div>
+				<div class = 'box'>
+					<h3>Simon</h3>
+					<!-- <img /> -->
+					<template>
+						<video muted>
+							<source src = 'Videos/Wir%20sind%20-%20Simon.mp4'
+							        type = 'video/mp4'>
+						</video>
+					</template>
+				</div>
+				<div class = 'box'>
+					<h3>Tilman</h3>
+					<!-- img /> -->
+					<template>
+						<video muted>
+							<source src = 'Videos/Wir%20sind-%20Tilman.mp4'
+							        type = 'video/mp4'>
+						</video>
+					</template>
+				</div>
+				<div class = 'box'>
+					<h3>Moritz</h3>
+					<!-- <img /> -->
+					<template>
+						<video muted>
+							<source src = 'Videos/Wir%20sind-%20Moritz.mp4'
+							        type = 'video/mp4'>
+						</video>
+					</template>
+				</div>
+			</template>
+		</section>
+		<!--N_A_R_R_A_T_I_V-->
+		<section>
+			<h2>Filmemahcer</h2>
+			<!-- <img /> -->
+			<template>
+				<div class = 'box'>
+					<h3>Narrativ</h3>
+					<!-- <img /> -->
+					<template>
+						<video muted>
+							<source src = 'Videos/Narrativ.mp4'
+							        type = 'video/mp4'>
+						</video>
+						<p> Manches kompvart, manches unterstützt.</p>
+					</template>
+				</div>
+				<div class = 'box'>
+					<h3>Behind the scenes</h3>
+					<!-- <img /> -->
+					<template>
+						<p>Um mit Bewegtbild zu verzaubern, müssen viele Opfer
+						   gebracht werden. Hier mehr dazu.
+						</p>
+						<p> Ach ja. Blicke hinter die Kulissen und Technik gibt
+						    es hier auch.
+						</p>
+						<div class = 'grid'>
+							<video muted>
+								<source src = 'Videos/BTS-Beispiel.mp4'
+								        type = 'video/mp4'>
+							</video>
+							<video muted>
+								<source src = 'Videos/BTS-Beispiel2.mp4'
+								        type = 'video/mp4'>
+							</video>
+							<video muted>
+								<source src = 'Videos/BTS-Beispiel3.mp4'
+								        type = 'video/mp4'>
+							</video>
+						</div>
+					</template>
+				</div>
+			</template>
+		</section>
+		<!--K_O_N_T_A_K_T-->
+		<section>
+			<h2>Kontakt</h2>
+			<!-- <img /> -->
+			<template>
+				<div class = 'box'>
+					<h3>Wir wollen SIe!</h3>
+					<!-- <img /> -->
+					<template>
+						<p>Wir sind gerne für Anfragen aller Art und
+						   kostenfreien Beratungsgesprächen da. Kontaktieren Sie
+						   uns gerne per Mail oder Telefon!
+						</p>
+					</template>
+				</div>
+			</template>
+		</section>
+		<!--I_M_P_R_E_S_S_U_M-->
+		<section>
+			<h2>Impressum</h2>
+			<!-- <img /> -->
+			<template>
+				<div class = 'box'>
+					<p>24OliveTrees MEDIA UG (haftungsbeschränkt)
+						<br/>
+					   Tietjenstr. 2
+						<br/>
+					   28359 Bremen
+						<br/>
+					   +49 421 9896 4620
+						<br/>
+					   hello@24olivetrees.com
+						<br/>
+					   24olivetrees.com
+						<br/>
+						<br/>
+					   Amtsgericht Bremen: HRB 34903 HB
+						<br/>
+					   USt-ID: DE326107002
+						<br/>
+					   Geschäftsführer: Tilman Görlitz
+						<br/>
+					   Geschäftszeiten: montags bis freitags, 9–17 Uhr
+						<br/>
+						<br/>
+					   Verantwortlich für den Inhalt der Seite: Moritz Rocker
+						<br/>
+					</p>
+				</div>
+			</template>
+		</section>
+		<script>
+			//A_N_I_M_A_T_E
+			const spline = new Array(125);
+			for(let i = 0; i < 125; ++i){
+				spline[i] = (1 + Math.cos(Math.PI / 125 * i)) / 2;
+			}
+			function getValue(object, property){
+				return parseInt(window.getComputedStyle(object, null)
+				                      .getPropertyValue(property), 10);
+			}
+			function animate(object, property, end, milliseconds){
+				let t                                       = 0, delta = 1000 / milliseconds,
+				    start = getValue(object, property), way = start - end,
+				    interval;
+				if(delta > 124) delta = 124;
+				interval = setInterval(() => {
+					if(124 < t) clearInterval(interval);
+					object.style[property] = end + spline[t] * way + 'px';
+					t += delta;
+				}, 4);
+			}
+			//S_C_R_O_L_L___T_O
+			function scrollTo(sections, page){
+				let i = 0, milliseconds = 500, delay = 100, current, top,
+				    newTop, delaySum                 = 0, height;
+				//Scrolls to a page in some milliseconds
+				for(; i < sections.length; ++i){
+					current = sections[i];
+					//Get top of current
+					top = getValue(current, 'top');
+					//Get height of current
+					height = getValue(current, 'height');
+					//Calculate newTop
+					//____Top navigation
+					if(i < page){
+						newTop = (i + 1) * 50 - height;
+					}
+					//____Current page
+					else if(i > page){
+						newTop =
+							window.innerHeight - (sections.length - i) * 50;
+					}
+					//____Bottom navigation
+					else{
+						newTop = window.innerHeight / 2 - height / 2;
+					}
+					//Animate current, if current has to be animated
+					if(top !== newTop){
+						//Add delay to each animation
+						delaySum += delay;
+						//Animate current with delay
+						setTimeout(() => {
+							animate(current, 'top', newTop, milliseconds);
+						}, delaySum);
+					}
+				}
+			}
+			//Set height for all sections
+			const sections = document.getElementsByTagName('section');
+			for(let j = 0; j < sections.length; ++j){
+				sections[j].style.height =
+					window.innerHeight - sections.length * 50 + 'px';
+			}
+			//Scroll initially to first section
+			scrollTo(sections, 0);
+			//S_C_R_O_L_L
+			let oldTime = 0, page = 0;
+			function scroll(sections, keyCode){
+				console.log('keyCode' + keyCode);
+				if(Date.now() <= oldTime + 1100){
+					return;
+				}
+				switch(keyCode){
+					case 38:
+						//UP
+						if(page >= 1){
+							--page;
+						}
+						break;
+					case 40:
+						//DOWN
+						if(page <= sections.length - 2){
+							++page;
+						}
+						break;
+				}
+				scrollTo(sections, page);
+				oldTime = Date.now();
+			}
+			function animateBoxes(sections){
+				let milliseconds = 1000, i = 0, boxes, boxWidth, j = 0;
+				for(; i < sections.length; ++i){
+					boxes = sections[i].getElementsByClassName('box');
+					boxWidth = window.innerWidth / boxes.length;
+					for(j = 0; j < boxes.length; ++j){
+						animate(boxes[j], 'width', boxWidth, milliseconds);
+						animate(boxes[j], 'left', j * boxWidth, milliseconds);
+					}
+				}
+			}
+			animateBoxes(0);
+			window.onresize = () => {
+				animateBoxes(sections);
+				scrollTo(sections, page);
+			};
+			//L_I_S_T_E_N_E_R_S
+			//____M-O-U-S-E
+			//TODO: Mouse
+			//H_O_V_E_R
+			document.getElementsByTagName('video').onmouseenter = (e) => {
+				const o = e.target;
+				o.play();
+			};
+			document.getElementsByTagName('video').onmouseleave = (e) => {
+				const o = e.target;
+				o.pause();
+			};
+			//R-E-C-O-G-N-I-Z-E
+			function recognize(x, y){
+				if(y > -20 && y < 20){
+					if(x < -50){
+						//Left
+						return 37;
+					}
+					if(x > 50){
+						//Right
+						return 39;
+					}
+				}
+				if(x > -20 && x < 20){
+					if(y < -50){
+						//Up
+						return 38;
+					}
+					if(y > 50){
+						//Down
+						return 40;
+					}
+				}
+				//Else
+				return 0;
+			}
+			//____W_H_E_E_L
+			window.onwheel = (e) => {
+				//Scroll, if wheel moved
+				scroll(sections, recognize(e.deltaX, e.deltaY));
+			};
+			//DRAG
+			function drag(object, x, y){
+				//Drag current section
+				object.style.top = (y - oldY) / 10 + 'px';
+				object.style.left = (x - oldX) / 10 + 'px';
+			}
+			//____T_O_U_C_H
+			let oldX, oldY;
+			window.ontouchstart = (e) => {
+				//Store location of touch start
+				oldX = e.touches[0].clientX;
+				oldY = e.touches[0].clientY;
+			};
+			window.ontouchmove = (e) => {
+				//Drag, if finger is moving
+				drag(sections[page], e.changedTouches[0].clientX,
+				     e.changedTouches[0].clientY);
+			};
+			window.ontouchend = (e) => {
+				//Scroll, if finger releases
+				scroll(sections, recognize(oldX - e.changedTouches[0].clientX,
+				                           oldY - e.changedTouches[0].clientY));
+			};
+			//P_E_A_K
+			function peek(object, keyCode){
+				//Move the current object a bit
+				switch(keyCode){
+					case 37:
+						//Left
+						animate(object, 'left', getValue(object, 'left') - 50,
+						        500);
+						break;
+					case 38:
+						//Up
+						animate(object, 'top', getValue(object, 'top') + 50,
+						        500);
+						break;
+					case 39:
+						//Right
+						animate(object, 'left', getValue(object, 'left') + 50,
+						        500);
+						break;
+					case 40:
+						//Down
+						animate(object, 'top', getValue(object, 'top') - 50,
+						        500);
+						break;
+				}
+			}
+			//____K_E_Y
+			let keyUp = true;
+			document.onkeydown = (e) => {
+				//Peek, if key is pressed
+				if(keyUp){
+					peek(sections[page], e.keyCode);
+					keyUp = false;
+				}
+			};
+			document.onkeyup = (e) => {
+				//Scroll, if key is released
+				if(! keyUp){
+					scroll(sections, e.keyCode);
+					keyUp = true;
+				}
+			};
+			/*			ScreenOrientation.onchange = (e) {
+			 
+			 }*/
+		</script>
+	</body>
 </html>

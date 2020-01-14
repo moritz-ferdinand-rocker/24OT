@@ -272,6 +272,9 @@
 			}
 			//S_C_R_O_L_L___T_O
 			function scrollTo(sections, page, milliseconds, delay){
+				if(Date.now() < oldTime + 500){
+					return;
+				}
 				//Scrolls to a page in some milliseconds
 				var current, top, newTop, delaySum = 0, height;
 				for(var i = 0; i < sections.length; ++i){
@@ -323,38 +326,36 @@
 			//S_C_R_O_L_L
 			var page = 0, oldScroll = 0, oldTime = 0;
 			function scroll(sections, keyCode){
-				if(Date.now() > oldTime + 500){
-					switch(keyCode){
-						case 37:
-							//LEFT
+				switch(keyCode){
+					case 37:
+						//LEFT
+						reset(sections[page]);
+						break;
+					case 38:
+						//UP
+						if(page < 1){
 							reset(sections[page]);
-							break;
-						case 38:
-							//UP
-							if(page < 1){
-								reset(sections[page]);
-							} else{
-								scrollTo(sections, --page, 1000, 100);
-							}
-							break;
-						case 39:
-							//RIGHT
+						} else{
+							scrollTo(sections, --page, 1000, 100);
+						}
+						break;
+					case 39:
+						//RIGHT
+						reset(sections[page]);
+						break;
+					case 40:
+						//DOWN
+						if(page > sections.length - 2){
 							reset(sections[page]);
-							break;
-						case 40:
-							//DOWN
-							if(page > sections.length - 2){
-								reset(sections[page]);
-							} else{
-								scrollTo(sections, ++page, 1000, 100);
-							}
-							break;
-						default:
-							reset(sections[page]);
-					}
-					oldScroll = window.scrollY;
-					oldTime = Date.now();
+						} else{
+							scrollTo(sections, ++page, 1000, 100);
+						}
+						break;
+					default:
+						reset(sections[page]);
 				}
+				oldScroll = window.scrollY;
+				oldTime = Date.now();
 			}
 			function animateBoxes(milliseconds){
 				var sections = document.getElementsByTagName('section');
@@ -477,7 +478,7 @@
 					keyUp = true;
 				}
 			};
-			animate(sections[0], 'top', 400, 1000);
+			scrollTo(sections, 2, 1000, 100);
 		</script>
 	</body>
 </html>

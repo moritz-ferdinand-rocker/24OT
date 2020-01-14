@@ -260,9 +260,9 @@
 			</template>
 		</section>
 		<!--I_M_P_R_E_S_S_U_M-->
-		<section>
+		<!--<section>
 			<h2>Impressum</h2>
-			<!-- <img /> -->
+			&lt;!&ndash; <img /> &ndash;&gt;
 			<template>
 				<div class = 'box'>
 					<p>24OliveTrees MEDIA UG (haftungsbeschränkt)
@@ -292,7 +292,7 @@
 					</p>
 				</div>
 			</template>
-		</section>
+		</section>-->
 		<script>
 			//A_N_I_M_A_T_E
 			const spline = new Array(125);
@@ -331,12 +331,12 @@
                         if(i < page){
                             newTop = (i + 1) * 50 - height;
                         }
-                        //____Current page
+                        //____Bottom navigation
                         else if(i > page){
                             newTop =
                                 window.innerHeight - (sections.length - i) * 50;
                         }
-                        //____Bottom navigation
+                        //____Current page
                         else{
                             newTop = window.innerHeight / 2 - height / 2;
                         }
@@ -362,7 +362,6 @@
 			scrollTo(sections, 0);
 			//S_C_R_O_L_L
 			let oldTime = 0, page = 0;
-
 			function scroll(sections, keyCode) {
 				console.log('keyCode' + keyCode);
 				if (Date.now() <= oldTime + 1100) {

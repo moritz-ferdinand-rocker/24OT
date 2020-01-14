@@ -254,9 +254,9 @@
 		</section>
 		<script>
 			//A_N_I_M_A_T_E
-			var cos = new Array(125);
+			var spline = new Array(125);
 			for(var i = 0; i < 125; ++i){
-				cos[i] = (1 + Math.cos(Math.PI / 125 * i)) / 2;
+				spline[i] = (1 + Math.cos(Math.PI / 125 * i)) / 2;
 			}
 			function animate(object, property, end, milliseconds){
 				var t = 0, delta = 1000 / milliseconds,
@@ -266,17 +266,19 @@
 				if(delta > 124) delta = 124;
 				interval = setInterval(() => {
 					if(124 < t) clearInterval(interval);
-					object.style[property] = end + cos[t] * way + 'px';
+					object.style[property] = end + spline[t] * way + 'px';
 					t += delta;
 				}, 4);
 			}
 			//S_C_R_O_L_L___T_O
-			function scrollTo(sections, page, milliseconds, delay){
+			var oldScroll = 0, oldTime = 0;
+			function scrollTo(sections, page){
+				var milliseconds = 1000, delay = 100, current, top, newTop,
+				    delaySum                   = 0, height;
 				if(Date.now() <= oldTime + milliseconds){
 					return;
 				}
 				//Scrolls to a page in some milliseconds
-				var current, top, newTop, delaySum = 0, height;
 				console.log(page);
 				for(var i = 0; i < sections.length; ++i){
 					current = sections[i];
@@ -310,6 +312,8 @@
 						}, delaySum);
 					}
 				}
+				oldScroll = window.scrollY;
+				oldTime = Date.now();
 			}
 			//Set height for all sections
 			var sections = document.getElementsByTagName('section');
@@ -318,15 +322,15 @@
 					window.innerHeight - sections.length * 50 + 'px';
 			}
 			//Scroll initially to first section
-			scrollTo(sections, 0, 0, 0);
+			scrollTo(sections, 0);
 			//R_E_S_E_T
 			function reset(object){
 				animate(object, 'top', 0, 500);
 				animate(object, 'left', 0, 500);
 			}
 			//S_C_R_O_L_L
-			var page = 0, oldScroll = 0, oldTime = 0;
-			function scroll(sections, keyCode){
+			var page = 0;
+			function scroll(sections, page, keyCode){
 				switch(keyCode){
 					case 37:
 						//LEFT
@@ -337,7 +341,7 @@
 						if(page < 1){
 							reset(sections[page]);
 						} else{
-							scrollTo(sections, --page, 1000, 100);
+							scrollTo(sections, --page);
 						}
 						break;
 					case 39:
@@ -349,14 +353,12 @@
 						if(page > sections.length - 2){
 							reset(sections[page]);
 						} else{
-							scrollTo(sections, ++page, 1000, 100);
+							scrollTo(sections, ++page);
 						}
 						break;
 					default:
 						reset(sections[page]);
 				}
-				oldScroll = window.scrollY;
-				oldTime = Date.now();
 			}
 			function animateBoxes(milliseconds){
 				var sections = document.getElementsByTagName('section');
@@ -389,32 +391,37 @@
 			function recognize(x, y){
 				if(y > -20 && y < 20){
 					if(x < -50){
+						//Left
 						return 37;
 					}
 					if(x > 50){
+						//Right
 						return 39;
 					}
 				}
 				if(x > -20 && x < 20){
 					if(y < -50){
+						//Up
 						return 38;
 					}
 					if(y > 50){
+						//Down
 						return 40;
 					}
 				}
+				//Else
 				return 0;
 			}
 			//____W_H_E_E_L
 			window.onwheel = (e) => {
 				//Scroll, if wheel moved
-				scroll(sections, recognize(e.deltaX, e.deltaY));
+				scroll(sections, page, recognize(e.deltaX, e.deltaY));
 			};
 			//DRAG
-			function drag(sections, x, y){
+			function drag(object, x, y){
 				//Drag current section
-				sections[page].style.top = (y - oldY) / 10 + 'px';
-				sections[page].style.left = (x - oldX) / 10 + 'px';
+				object.style.top = (y - oldY) / 10 + 'px';
+				object.style.left = (x - oldX) / 10 + 'px';
 			}
 			//____T_O_U_C_H
 			var oldX, oldY;
@@ -425,13 +432,14 @@
 			};
 			window.ontouchmove = (e) => {
 				//Drag, if finger is moving
-				drag(sections, e.changedTouches[0].clientX,
+				drag(sections[page], e.changedTouches[0].clientX,
 				     e.changedTouches[0].clientY);
 			};
 			window.ontouchend = (e) => {
 				//Scroll, if finger releases
-				scroll(sections, recognize(oldX - e.changedTouches[0].clientX,
-				                           oldY - e.changedTouches[0].clientY));
+				scroll(sections, page,
+				       recognize(oldX - e.changedTouches[0].clientX,
+				                 oldY - e.changedTouches[0].clientY));
 			};
 			//P_E_A_K
 			function peek(object, keyCode){
@@ -475,7 +483,7 @@
 			document.onkeyup = (e) => {
 				//Scroll, if key is released
 				if(! keyUp){
-					scroll(sections, e.keyCode);
+					scroll(sections, page, e.keyCode);
 					keyUp = true;
 				}
 			};

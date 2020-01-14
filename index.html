@@ -355,25 +355,26 @@
 			const sections = document.getElementsByTagName('section');
 			for(let j = 0; j < sections.length; ++j){
 				sections[j].style.height =
-					window.innerHeight - sections.length * 50 + 'px';
+						window.innerHeight - sections.length * 50 + 'px';
 			}
 			//Scroll initially to first section
 			window.onkeydown = (e) => {
-				if(e.keyCode === 69){
+				if (e.keyCode === 69) {
 					scrollTo(sections, 0);
 				}
 			};
 			//S_C_R_O_L_L
-			let oldTime = 0, page = 0;
-			function scroll(sections, keyCode){
+			let oldTime = 0, page = 1;
+
+			function scroll(sections, keyCode) {
 				console.log('keyCode' + keyCode);
-				if(Date.now() <= oldTime + 1100){
+				if (Date.now() <= oldTime + 1100) {
 					return;
 				}
-				switch(keyCode){
+				switch (keyCode) {
 					case 38:
 						//UP
-						if(page >= 1){
+						if (page >= 1) {
 							--page;
 						}
 						break;

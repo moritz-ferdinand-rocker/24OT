@@ -19,27 +19,27 @@
 		<title>24OliveTrees</title>
 		<style>
 			html, body{
-				background-color: #000000;
-				font-family: Raleway, sans-serif;
-				font-size: 13px;
-				height: 100%;
-				margin: 0;
-				overflow: hidden;
+				background-color : #000000;
+				font-family      : Raleway, sans-serif;
+				font-size        : 13px;
+				height           : 100%;
+				margin           : 0;
+				overflow         : hidden;
 			}
 			::-webkit-scrollbar{
 				display : none;
 			}
 			section{
-
-				left             : 0;
-				overflow         : hidden;
-				position         : fixed;
-				width            : 100%;
+				left     : 0;
+				overflow : hidden;
+				position : fixed;
+				width    : 100%;
 			}
 			section > img{
 				height     : 100%;
 				object-fit : cover;
 				position   : absolute;
+				top        : 0;
 				width      : 100%;
 			}
 			video{
@@ -53,37 +53,31 @@
 				top      : 0;
 			}
 			h1, h2, h3, p{
-				color: white;
-				left: 20px;
-				margin: 0;
-				position: absolute;
-				top: 0;
+				color    : white;
+				left     : 20px;
+				margin   : 0;
+				position : absolute;
+				top      : 0;
 			}
-
-			h1 {
-				font-size: 30px;
+			h1{
+				font-size : 30px;
 			}
-
-			h3 {
-				font-size: 20px;
-				writing-mode: vertical-rl;
+			h3{
+				font-size    : 20px;
+				writing-mode : vertical-rl;
 			}
-
-			h2 {
-				font-size: 25px;
-				position: sticky;
+			h2{
+				font-size : 25px;
+				position  : sticky;
 			}
-
-			p {
-				color: white;
+			p{
+				color : white;
 			}
-
-			video {
-				filter: brightness(50%);
-				transition: transform .5s, filter 1.5s ease-in-out;
+			video{
+				filter     : brightness(50%);
+				transition : transform .5s, filter 1.5s ease-in-out;
 			}
-
-			video:hover {
+			video:hover{
 				filter    : brightness(100%);
 				transform : scale(1.1);
 			}
@@ -92,32 +86,32 @@
 	<body>
 		<!--S_H_O_W_R_E_E_L-->
 		<section>
-			<img alt="Platzhalter" src="platzhalter.png">
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<template>
 				<h2>Showreel.</h2>
-				<video autoplay id='header-video' loop muted>
-					<source src='Videos/Showreel.mp4' type='video/mp4'>
+				<video autoplay id = 'header-video' loop muted>
+					<source src = 'Videos/Showreel.mp4' type = 'video/mp4'>
 				</video>
 			</template>
 		</section>
 		<!--P_O_R_T_F_O_L_I_O-->
 		<section>
 			<h2>Portfolio</h2>
-			<img alt="Platzhalter" src="platzhalter.png">
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<template>
-				<div class='box'>
+				<div class = 'box'>
 					<h3>Musikvideos</h3>
-					<img alt="Platzhalter" src="platzhalter.png">
+					<img alt = 'Platzhalter' src = 'platzhalter.png'>
 					<template>
 						<p>Hier gibts ein paar Beispiele.</p>
 					</template>
 				</div>
-				<div class='box'>
+				<div class = 'box'>
 					<img>
 					<template>
 						<video muted>
-							<source src='Videos/Unternehmensfilm.mp4'
-									type='video/mp4'>
+							<source src = 'Videos/Unternehmensfilm.mp4'
+							        type = 'video/mp4'>
 						</video>
 						<h3>Unternehmensfilme</h3>
 						<h4>Image-.Messe-,Recruiting-</h4>
@@ -130,13 +124,12 @@
 						</p>
 					</template>
 				</div>
-				<div class='box'>
-					<img alt="Platzhalter" src="platzhalter.png">
-
+				<div class = 'box'>
+					<img alt = 'Platzhalter' src = 'platzhalter.png'>
 					<template>
 						<video muted>
-							<source src='Videos/Produktfilme%20-%20Werbung.mp4'
-									type='video/mp4'>
+							<source src = 'Videos/Produktfilme%20-%20Werbung.mp4'
+							        type = 'video/mp4'>
 						</video>
 						<h3>Werbung/Produktfilme</h3>
 						<h4>Werbung.</h4>
@@ -150,99 +143,97 @@
 		<!--W_I_R_ _S_I_N_D-->
 		<section>
 			<h2>Wir sind</h2>
-			<img alt="Platzhalter" src="platzhalter.png">
-
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<template>
-				<div class='box'>
+				<div class = 'box'>
 					<h3>Team</h3>
-					<img alt="Platzhalter" src="platzhalter.png">
+					<img alt = 'Platzhalter' src = 'platzhalter.png'>
 					<template>
 						<video muted>
-							<source src='Videos/Wir%20sind%20-%20Alle.mp4'
-									type='video/mp4'>
+							<source src = 'Videos/Wir%20sind%20-%20Alle.mp4'
+							        type = 'video/mp4'>
 						</video>
 						<p> Aus Bremen. Jung. Modern. Filmemacher und co. Wir
-							bieten von Konzeption bis Vertrieb alles, was man
-							aus (Bewegt-)Bildern machen kann. Wir haben einen
-							riesigen Pool an Medienschaffenden und so immer die
-							richtigen Menschen für Sie und Ihr Projekt. Aber
+						    bieten von Konzeption bis Vertrieb alles, was man
+						    aus (Bewegt-)Bildern machen kann. Wir haben einen
+						    riesigen Pool an Medienschaffenden und so immer die
+						    richtigen Menschen für Sie und Ihr Projekt. Aber
 						    lernen Sie hier erstmal die kennen, die eh alles
 						    machen.
 						</p>
 					</template>
 				</div>
-				<div class='box'>
+				<div class = 'box'>
 					<h3>Paulo</h3>
-					<img alt="Platzhalter" src="platzhalter.png">
+					<img alt = 'Platzhalter' src = 'platzhalter.png'>
 					<template>
 						<video muted>
-							<source src='Videos/Wir%20sind%20-%20Paulo.mp4'
-									type='video/mp4'>
+							<source src = 'Videos/Wir%20sind%20-%20Paulo.mp4'
+							        type = 'video/mp4'>
 						</video>
 					</template>
 				</div>
-				<div class='box'>
+				<div class = 'box'>
 					<h3>Simon</h3>
-					<img alt="Platzhalter" src="platzhalter.png">
+					<img alt = 'Platzhalter' src = 'platzhalter.png'>
 					<template>
 						<video muted>
-							<source src='Videos/Wir%20sind%20-%20Simon.mp4'
-									type='video/mp4'>
+							<source src = 'Videos/Wir%20sind%20-%20Simon.mp4'
+							        type = 'video/mp4'>
 						</video>
 					</template>
 				</div>
-				<div class='box'>
+				<div class = 'box'>
 					<h3>Tilman</h3>
-					<img alt="Platzhalter" src="platzhalter.png">
+					<img alt = 'Platzhalter' src = 'platzhalter.png'>
 					<template>
 						<video muted>
-							<source src='Videos/Wir%20sind-%20Tilman.mp4'
-									type='video/mp4'>
+							<source src = 'Videos/Wir%20sind-%20Tilman.mp4'
+							        type = 'video/mp4'>
 						</video>
 					</template>
 				</div>
-				<div class='box'>
+				<div class = 'box'>
 					<h3>Moritz</h3>
-					<img alt="Platzhalter" src="platzhalter.png">
+					<img alt = 'Platzhalter' src = 'platzhalter.png'>
 					<template>
 						<video muted>
-							<source src='Videos/Wir%20sind-%20Moritz.mp4'
-									type='video/mp4'>
+							<source src = 'Videos/Wir%20sind-%20Moritz.mp4'
+							        type = 'video/mp4'>
 						</video>
 					</template>
 				</div>
 			</template>
 		</section>
-
 		<!--N_A_R_R_A_T_I_V-->
 		<section>
 			<h2>Narrativ</h2>
-			<img alt="Platzhalter" src="platzhalter.png">
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<template>
-				<div class='box'>
+				<div class = 'box'>
 					<h3>Film.</h3>
-					<img alt="Platzhalter" src="platzhalter.png">
+					<img alt = 'Platzhalter' src = 'platzhalter.png'>
 					<template>
 						<video muted>
-							<source src='Videos/Narrativ.mp4'
-									type='video/mp4'>
+							<source src = 'Videos/Narrativ.mp4'
+							        type = 'video/mp4'>
 						</video>
 						<p> Manches kompvart, manches unterstützt.</p>
 					</template>
 				</div>
-				<div class='box'>
+				<div class = 'box'>
 					<h3>Behind the scenes</h3>
-					<img alt="Platzhalter" src="platzhalter.png">
+					<img alt = 'Platzhalter' src = 'platzhalter.png'>
 					<template>
 						<p>Um mit Bewegtbild zu verzaubern, müssen viele Opfer
-							gebracht werden. Hier mehr dazu.
+						   gebracht werden. Hier mehr dazu.
 						</p>
 						<p> Ach ja. Blicke hinter die Kulissen und Technik gibt
-							es hier auch.
+						    es hier auch.
 						</p>
-						<div class='grid'>
+						<div class = 'grid'>
 							<video muted>
-								<source src='Videos/BTS-Beispiel.mp4'
+								<source src = 'Videos/BTS-Beispiel.mp4'
 								        type = 'video/mp4'>
 							</video>
 							<video muted>
@@ -261,15 +252,15 @@
 		<!--K_O_N_T_A_K_T-->
 		<section>
 			<h2>Kontakt</h2>
-			<img alt="Platzhalter" src="platzhalter.png">
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<template>
-				<div class='box'>
+				<div class = 'box'>
 					<h3>Wir wollen SIe!</h3>
-					<img alt="Platzhalter" src="platzhalter.png">
+					<img alt = 'Platzhalter' src = 'platzhalter.png'>
 					<template>
 						<p>Wir sind gerne für Anfragen aller Art und
-							kostenfreien Beratungsgesprächen da. Kontaktieren Sie
-							uns gerne per Mail oder Telefon!
+						   kostenfreien Beratungsgesprächen da. Kontaktieren Sie
+						   uns gerne per Mail oder Telefon!
 						</p>
 					</template>
 				</div>
@@ -278,16 +269,16 @@
 		I_M_P_R_E_S_S_U_M
 		<section>
 			<h2>Impressum</h2>
-			<img alt="Platzhalter" src="platzhalter.png">
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<template>
-				<div class='box'>
+				<div class = 'box'>
 					<p>24OliveTrees MEDIA UG (haftungsbeschränkt)
 						<br/>
-						Tietjenstr. 2
+					   Tietjenstr. 2
 						<br/>
-						28359 Bremen
+					   28359 Bremen
 						<br/>
-						+49 421 9896 4620
+					   +49 421 9896 4620
 						<br/>
 					   hello@24olivetrees.com
 						<br/>
@@ -320,42 +311,41 @@
 				                      .getPropertyValue(property), 10);
 			}
 			function animate(object, property, end, milliseconds){
-				let t = 0, delta = 1000 / milliseconds,
-						start = getValue(object, property), way = start - end,
-						interval;
-				if (delta > 124) delta = 124;
+				let t                                       = 0, delta = 1000 / milliseconds,
+				    start = getValue(object, property), way = start - end,
+				    interval;
+				if(delta > 124) delta = 124;
 				interval = setInterval(() => {
-					if (124 < t) clearInterval(interval);
+					if(124 < t) clearInterval(interval);
 					object.style[property] = end + spline[t] * way + 'px';
 					t += delta;
 				}, 4);
 			}
-
 			//S_C_R_O_L_L___T_O
-			function scrollTo(sections, page) {
+			function scrollTo(sections, page){
 				let i = 0, milliseconds = 500, delay = 100, current, top,
-						newTop, delaySum = 0, height;
+				    newTop, delaySum                 = 0, height;
 				//Scrolls to a page in some milliseconds
-				for (; i < sections.length; ++i) {
+				for(; i < sections.length; ++i){
 					current = sections[i];
 					//Get top of current
 					top = getValue(current, 'top');
 					//Get height of current
 					height = getValue(current, 'height');
 					//Calculate newTop
-                        //____Top navigation
-                        if(i < page){
-                            newTop = (i + 1) * 50 - height;
-                        }
-                        //____Bottom navigation
-                        else if(i > page){
-	                        newTop =
-		                        window.innerHeight - (sections.length - i) * 50;
-                        }
-                        //____Current page
-                        else{
-	                        newTop = i * 50;
-                        }
+					//____Top navigation
+					if(i < page){
+						newTop = (i + 1) * 50 - height;
+					}
+					//____Bottom navigation
+					else if(i > page){
+						newTop =
+							window.innerHeight - (sections.length - i) * 50;
+					}
+					//____Current page
+					else{
+						newTop = i * 50;
+					}
 					//Animate current, if current has to be animated
 					if(top !== newTop){
 						//Add delay to each animation
@@ -367,10 +357,9 @@
 					}
 				}
 			}
-
 			//Set height for all sections
 			const sections = document.getElementsByTagName('section');
-			for (let j = 0; j < sections.length; ++j){
+			for(let j = 0; j < sections.length; ++j){
 				let imgs = sections[j].getElementsByTagName('img');
 				imgs[0].style.filter = 'hue-rotate(' + 40 * j + 'deg)';
 				sections[j].style.height =
@@ -383,15 +372,15 @@
 			scrollTo(sections, 0);
 			//S_C_R_O_L_L
 			let oldTime = 0, page = 0;
-			function scroll(sections, keyCode) {
+			function scroll(sections, keyCode){
 				console.log('keyCode' + keyCode);
-				if (Date.now() <= oldTime + 550) {
+				if(Date.now() <= oldTime + 550){
 					return;
 				}
-				switch (keyCode) {
+				switch(keyCode){
 					case 38:
 						//UP
-						if (page >= 1) {
+						if(page >= 1){
 							--page;
 						}
 						break;
@@ -421,7 +410,6 @@
 				animateBoxes(sections);
 				scrollTo(sections, page);
 			};
-
 			//L_I_S_T_E_N_E_R_S
 			//____M-O-U-S-E
 			//TODO: Mouse

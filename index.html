@@ -462,8 +462,8 @@
 			let topX, topY, oldX, oldY;
 			window.ontouchstart = (e) => {
 				//Store location of touch start
-				topX = getValue(sections[page], 'top');
-				topY = getValue(sections[page], 'left');
+				topY = getValue(sections[page], 'top');
+				topX = getValue(sections[page], 'left');
 				oldX = e.touches[0].clientX;
 				oldY = e.touches[0].clientY;
 			};

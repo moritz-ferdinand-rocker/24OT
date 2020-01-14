@@ -341,14 +341,14 @@
                             newTop = window.innerHeight / 2 - height / 2;
                         }
                         //Animate current, if current has to be animated
-                        if(top !== newTop){
-                            //Add delay to each animation
-                            delaySum += delay;
-                            //Animate current with delay
-                            setTimeout(() => {
-                                animate(current, 'top', newTop, milliseconds);
-                            }, delaySum);
-						}
+                        if(true){
+	                        //Add delay to each animation
+	                        delaySum += delay;
+	                        //Animate current with delay
+	                        setTimeout(() => {
+		                        animate(current, 'top', newTop, milliseconds);
+	                        }, delaySum);
+                        }
 				}
 			}
 

@@ -281,7 +281,6 @@
 				let i = 0, milliseconds = 1000, delay = 100, current, top,
 				    newTop, delaySum                  = 0, height;
 				//Scrolls to a page in some milliseconds
-				console.log(page);
 				for(; i < sections.length; ++i){
 					current = sections[i];
 					//Get top of current
@@ -303,6 +302,11 @@
 						newTop = window.innerHeight / 2 - height / 2;
 					}
 					//Animate current, if current has to be animated
+					console.log('i' + i);
+					console.log('page' + page);
+					console.log('top' + top);
+					console.log('newTop' + newTop);
+					console.log('height' + height);
 					if(top !== newTop){
 						//Add delay to each animation
 						delaySum += delay;

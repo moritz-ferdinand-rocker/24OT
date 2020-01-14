@@ -330,7 +330,7 @@
 			}
 			//S_C_R_O_L_L
 			let page = 0;
-			function scroll(sections, page, keyCode){
+			function scroll(sections, keyCode){
 				switch(keyCode){
 					case 37:
 						//LEFT
@@ -414,7 +414,7 @@
 			//____W_H_E_E_L
 			window.onwheel = (e) => {
 				//Scroll, if wheel moved
-				scroll(sections, page, recognize(e.deltaX, e.deltaY));
+				scroll(sections, recognize(e.deltaX, e.deltaY));
 			};
 			//DRAG
 			function drag(object, x, y){
@@ -436,9 +436,8 @@
 			};
 			window.ontouchend = (e) => {
 				//Scroll, if finger releases
-				scroll(sections, page,
-				       recognize(oldX - e.changedTouches[0].clientX,
-				                 oldY - e.changedTouches[0].clientY));
+				scroll(sections, recognize(oldX - e.changedTouches[0].clientX,
+				                           oldY - e.changedTouches[0].clientY));
 			};
 			//P_E_A_K
 			function peek(object, keyCode){
@@ -482,7 +481,7 @@
 			document.onkeyup = (e) => {
 				//Scroll, if key is released
 				if(! keyUp){
-					scroll(sections, page, e.keyCode);
+					scroll(sections, e.keyCode);
 					keyUp = true;
 				}
 			};

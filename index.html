@@ -43,32 +43,30 @@
 			}
 			.box{
 				height   : 100%;
+				position : relative; /* ?? */
+				top      : 0;
+			}
+			h1, h2, h3, p{
+				left     : 0;
 				position : absolute;
 				top      : 0;
 			}
 			h3{
-				color        : white;
-				font-size    : 50px;
-				left         : 0;
-				top          : 0;
+				font-size    : 30px;
 				writing-mode : vertical-rl;
 			}
 			h2{
-				color     : white;
 				font-size : 50px;
-				left      : 0;
-				top       : 0;
 			}
 			p{
 				color : white;
 			}
 			video{
 				filter     : brightness(50%);
-				filter     : grayscale(80%);
 				transition : transform .5s, filter 1.5s ease-in-out;
 			}
 			video:hover{
-				filter    : grayscale(0%);
+				filter    : brightness(100%);
 				transform : scale(1.1);
 			}
 		</style>

@@ -312,7 +312,7 @@
 				                      .getPropertyValue(property), 10);
 			}
 			function animate(object, property, end, milliseconds){
-				let t                                       = 0, delta = 1000 / milliseconds,
+				let t                                       = 0, delta                            = 1000 / milliseconds,
 				    start = getValue(object, property), way = start - end,
 				    interval;
 				if(delta > 124) delta = 124;
@@ -325,9 +325,10 @@
 			//S_C_R_O_L_L___T_O
 			function scrollTo(sections, page){
 				let i = 0, milliseconds = 500, delay = 100, current, top,
-				    newTop, delaySum                 = 0, height, zIndex;
+				    newTop, interval, height, zIndex;
 				//Scrolls to a page in some milliseconds
-				for(; i < sections.length; ++i){
+				interval = setInterval(() => {
+					if(i >= sections.length) clearInterval(interval);
 					current = sections[i];
 					//Get top of current
 					top = getValue(current, 'top');
@@ -353,15 +354,12 @@
 					//Animate current, if current has to be animated
 					if(top !== newTop){
 						//Add delay to each animation
-						delaySum += delay;
 						//Animate current with delay
-						//setTimeout(() => {
 						animate(current, 'top', newTop, milliseconds);
 						animate(current, 'left', 0, milliseconds);
 						current.style.zIndex = zIndex;
-						//}, delaySum);
 					}
-				}
+				}, delay);
 			}
 			//Set height for all sections
 			const sections = document.getElementsByTagName('section');

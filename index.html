@@ -304,57 +304,59 @@
 				                      .getPropertyValue(property), 10);
 			}
 			function animate(object, property, end, milliseconds){
-				let t                                       = 0, delta = 1000 / milliseconds,
-				    start = getValue(object, property), way = start - end,
-				    interval;
-				if(delta > 124) delta = 124;
+				let t = 0, delta = 1000 / milliseconds,
+						start = getValue(object, property), way = start - end,
+						interval;
+				if (delta > 124) delta = 124;
 				interval = setInterval(() => {
-					if(124 < t) clearInterval(interval);
+					if (124 < t) clearInterval(interval);
 					object.style[property] = end + spline[t] * way + 'px';
 					t += delta;
 				}, 4);
 			}
+
 			//S_C_R_O_L_L___T_O
-			function scrollTo(sections, page){
-				let i = 0, milliseconds = 500, delay = 100, current, top,
-				    newTop, delaySum                 = 0, height;
-				//Scrolls to a page in some milliseconds
-				for(; i < sections.length; ++i){
-					current = sections[i];
-					//Get top of current
-					top = getValue(current, 'top');
-					//Get height of current
-					height = getValue(current, 'height');
-					//Calculate newTop
-					//____Top navigation
-					if(i < page){
-						newTop = (i + 1) * 50 - height;
-					}
-					//____Current page
-					else if(i > page){
-						newTop =
-							window.innerHeight - (sections.length - i) * 50;
-					}
-					//____Bottom navigation
-					else{
-						newTop = window.innerHeight / 2 - height / 2;
-					}
-					//Animate current, if current has to be animated
-					if(top !== newTop){
-						//Add delay to each animation
-						delaySum += delay;
-						//Animate current with delay
-						setTimeout(() => {
-							animate(current, 'top', newTop, milliseconds);
-						}, delaySum);
-					}
-				}
-			}
+			/*	function scrollTo(sections, page){
+                    let i = 0, milliseconds = 500, delay = 100, current, top,
+                        newTop, delaySum                 = 0, height;
+                    //Scrolls to a page in some milliseconds
+                    for(; i < sections.length; ++i){
+                        current = sections[i];
+                        //Get top of current
+                        top = getValue(current, 'top');
+                        //Get height of current
+                        height = getValue(current, 'height');
+                        //Calculate newTop
+                        //____Top navigation
+                        if(i < page){
+                            newTop = (i + 1) * 50 - height;
+                        }
+                        //____Current page
+                        else if(i > page){
+                            newTop =
+                                window.innerHeight - (sections.length - i) * 50;
+                        }
+                        //____Bottom navigation
+                        else{
+                            newTop = window.innerHeight / 2 - height / 2;
+                        }
+                        //Animate current, if current has to be animated
+                        if(top !== newTop){
+                            //Add delay to each animation
+                            delaySum += delay;
+                            //Animate current with delay
+                            setTimeout(() => {
+                                animate(current, 'top', newTop, milliseconds);
+                            }, delaySum);
+                        }
+                    }
+                }
+                */
 			//Set height for all sections
 			const sections = document.getElementsByTagName('section');
-			for(let j = 0; j < sections.length; ++j){
+			for (let j = 0; j < sections.length; ++j) {
 				sections[j].style.height =
-					window.innerHeight - sections.length * 50 + 'px';
+						window.innerHeight - sections.length * 50 + 'px';
 			}
 			//Scroll initially to first section
 			scrollTo(sections, 0);
@@ -398,6 +400,7 @@
 				animateBoxes(sections);
 				scrollTo(sections, page);
 			};
+
 			//L_I_S_T_E_N_E_R_S
 			//____M-O-U-S-E
 			//TODO: Mouse

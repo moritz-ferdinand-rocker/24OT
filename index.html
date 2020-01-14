@@ -354,7 +354,7 @@
 							zIndex = 5;
 						}
 						++i;
-					} while(top === newTop);
+					} while(top >= newTop - 1 && top <= newTop + 1);
 					//Animate current with delay
 					animate(current, 'top', newTop, milliseconds);
 					animate(current, 'left', 0, milliseconds);

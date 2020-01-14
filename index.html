@@ -362,7 +362,10 @@
 			const sections = document.getElementsByTagName('section');
 			for (let j = 0; j < sections.length; ++j) {
 				sections[j].style.height =
-						window.innerHeight - sections.length * 50 + 'px';
+					window.innerHeight - sections.length * 50 + 'px';
+				sections[j].onclick = (e) => {
+					scrollTo(sections, j);
+				};
 			}
 			//Scroll initially to first section
 			scrollTo(sections, 0);

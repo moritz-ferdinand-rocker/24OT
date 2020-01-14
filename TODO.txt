@@ -1,3 +1,4 @@
 - Sticky header
 - background images
 - right positioning for current
+- z-index

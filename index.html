@@ -382,8 +382,8 @@
 				scrollTo(sections, page);
 				oldTime = Date.now();
 			}
-			function animateBoxes(sections, milliseconds){
-				let i = 0, boxes, boxWidth, j = 0;
+			function animateBoxes(sections){
+				let milliseconds = 1000, i = 0, boxes, boxWidth, j = 0;
 				for(; i < sections.length; ++i){
 					boxes = sections[i].getElementsByClassName('box');
 					boxWidth = window.innerWidth / boxes.length;
@@ -395,7 +395,8 @@
 			}
 			animateBoxes(0);
 			window.onresize = () => {
-				animateBoxes(sections, 1000);
+				animateBoxes(sections);
+				scrollTo(sections, page);
 			};
 			//L_I_S_T_E_N_E_R_S
 			//____M-O-U-S-E
@@ -504,6 +505,9 @@
 					keyUp = true;
 				}
 			};
+			/*			ScreenOrientation.onchange = (e) {
+			 
+			 }*/
 		</script>
 	</body>
 </html>

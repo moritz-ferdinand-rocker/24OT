@@ -333,22 +333,22 @@
                         }
                         //____Bottom navigation
                         else if(i > page){
-                            newTop =
-                                window.innerHeight - (sections.length - i) * 50;
+	                        newTop =
+		                        window.innerHeight - (sections.length - i) * 50;
                         }
                         //____Current page
                         else{
-                            newTop = window.innerHeight / 2 - height / 2;
+	                        newTop = window.innerHeight / 2 - height / 2;
                         }
-                        //Animate current, if current has to be animated
-                        if(true){
-	                        //Add delay to each animation
-	                        delaySum += delay;
-	                        //Animate current with delay
-	                        setTimeout(() => {
-		                        animate(current, 'top', newTop, milliseconds);
-	                        }, delaySum);
-                        }
+					//Animate current, if current has to be animated
+					if(top !== newTop){
+						//Add delay to each animation
+						delaySum += delay;
+						//Animate current with delay
+						//setTimeout(() => {
+						animate(current, 'top', newTop, milliseconds);
+						//}, delaySum);
+					}
 				}
 			}
 

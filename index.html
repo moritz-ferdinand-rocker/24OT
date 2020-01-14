@@ -374,7 +374,7 @@
 				let imgs = sections[j].getElementsByTagName('img');
 				imgs[0].style.filter = 'hue-rotate(' + 40 * j + 'deg)';
 				sections[j].style.height =
-					window.innerHeight - sections.length * 50 + 'px';
+					window.innerHeight - (sections.length - 1) * 50 + 'px';
 				sections[j].onclick = () => {
 					scrollTo(sections, j);
 				};

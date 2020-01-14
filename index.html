@@ -86,27 +86,27 @@
 	<body>
 		<!--S_H_O_W_R_E_E_L-->
 		<section>
-			<img alt='Platzhalter' src='platzhalter.png'>
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<h2>Showreel.</h2>
 			<template>
-				<video autoplay id='header-video' loop muted>
-					<source src='Videos/Showreel.mp4' type='video/mp4'>
+				<video autoplay id = 'header-video' loop muted>
+					<source src = 'Videos/Showreel.mp4' type = 'video/mp4'>
 				</video>
 			</template>
 		</section>
 		<!--P_O_R_T_F_O_L_I_O-->
 		<section>
-			<img alt='Platzhalter' src='platzhalter.png'>
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<h2>Portfolio</h2>
 			<template>
-				<div class='box'>
+				<div class = 'box'>
 					<h3>Musikvideos</h3>
-					<img alt='Platzhalter' src='platzhalter.png'>
+					<img alt = 'Platzhalter' src = 'platzhalter.png'>
 					<template>
 						<p>Hier gibts ein paar Beispiele.</p>
 					</template>
 				</div>
-				<div class='box'>
+				<div class = 'box'>
 					<img>
 					<template>
 						<video muted>
@@ -142,16 +142,16 @@
 		</section>
 		<!--W_I_R_ _S_I_N_D-->
 		<section>
-			<img alt='Platzhalter' src='platzhalter.png'>
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<h2>Wir sind</h2>
 			<template>
-				<div class='box'>
+				<div class = 'box'>
 					<h3>Team</h3>
-					<img alt='Platzhalter' src='platzhalter.png'>
+					<img alt = 'Platzhalter' src = 'platzhalter.png'>
 					<template>
 						<video muted>
-							<source src='Videos/Wir%20sind%20-%20Alle.mp4'
-									type='video/mp4'>
+							<source src = 'Videos/Wir%20sind%20-%20Alle.mp4'
+							        type = 'video/mp4'>
 						</video>
 						<p> Aus Bremen. Jung. Modern. Filmemacher und co. Wir
 						    bieten von Konzeption bis Vertrieb alles, was man
@@ -207,16 +207,16 @@
 		</section>
 		<!--N_A_R_R_A_T_I_V-->
 		<section>
-			<img alt='Platzhalter' src='platzhalter.png'>
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<h2>Narrativ</h2>
 			<template>
-				<div class='box'>
+				<div class = 'box'>
 					<h3>Film.</h3>
-					<img alt='Platzhalter' src='platzhalter.png'>
+					<img alt = 'Platzhalter' src = 'platzhalter.png'>
 					<template>
 						<video muted>
-							<source src='Videos/Narrativ.mp4'
-									type='video/mp4'>
+							<source src = 'Videos/Narrativ.mp4'
+							        type = 'video/mp4'>
 						</video>
 						<p> Manches kompvart, manches unterstützt.</p>
 					</template>
@@ -251,16 +251,16 @@
 		</section>
 		<!--K_O_N_T_A_K_T-->
 		<section>
-			<img alt='Platzhalter' src='platzhalter.png'>
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<h2>Kontakt</h2>
 			<template>
-				<div class='box'>
+				<div class = 'box'>
 					<h3>Wir wollen SIe!</h3>
-					<img alt='Platzhalter' src='platzhalter.png'>
+					<img alt = 'Platzhalter' src = 'platzhalter.png'>
 					<template>
 						<p>Wir sind gerne für Anfragen aller Art und
-							kostenfreien Beratungsgesprächen da. Kontaktieren Sie
-							uns gerne per Mail oder Telefon!
+						   kostenfreien Beratungsgesprächen da. Kontaktieren Sie
+						   uns gerne per Mail oder Telefon!
 						</p>
 					</template>
 				</div>
@@ -268,17 +268,17 @@
 		</section>
 		I_M_P_R_E_S_S_U_M
 		<section>
-			<img alt='Platzhalter' src='platzhalter.png'>
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<h2>Impressum</h2>
 			<template>
-				<div class='box'>
+				<div class = 'box'>
 					<p>24OliveTrees MEDIA UG (haftungsbeschränkt)
 						<br/>
-						Tietjenstr. 2
+					   Tietjenstr. 2
 						<br/>
-						28359 Bremen
+					   28359 Bremen
 						<br/>
-						+49 421 9896 4620
+					   +49 421 9896 4620
 						<br/>
 					   hello@24olivetrees.com
 						<br/>
@@ -430,23 +430,17 @@
 			};
 			//R-E-C-O-G-N-I-Z-E
 			function recognize(x, y){
-				if(y > -20 && y < 20){
-					if(x < -50){
-						//Left
+				let absX = Math.abs(x), absY = Math.abs(y);
+				if(absX > absY / 2){
+					if(x < -30){
 						return 37;
-					}
-					if(x > 50){
-						//Right
+					} else if(x > 30){
 						return 39;
 					}
-				}
-				if(x > -20 && x < 20){
-					if(y < -50){
-						//Up
+				} else if(absY > absX / 2){
+					if(y < -30){
 						return 38;
-					}
-					if(y > 50){
-						//Down
+					} else if(y > 30){
 						return 40;
 					}
 				}
@@ -461,8 +455,10 @@
 			//DRAG
 			function drag(object, x, y){
 				//Drag current section
-				object.style.top = (y - oldY) / 10 + 'px';
-				object.style.left = (x - oldX) / 10 + 'px';
+				object.style.top =
+					getValue(object, 'top') + (y - oldY) / 10 + 'px';
+				object.style.left =
+					getValue(object, 'left') + (x - oldX) / 10 + 'px';
 			}
 			//____T_O_U_C_H
 			let oldX, oldY;
@@ -523,9 +519,6 @@
 					keyUp = true;
 				}
 			};
-			/*			ScreenOrientation.onchange = (e) {
-			 
-			 }*/
 		</script>
 	</body>
 </html>

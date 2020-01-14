@@ -302,16 +302,13 @@
 						newTop = window.innerHeight / 2 - height / 2;
 					}
 					//Animate current, if current has to be animated
-					console.log('i' + i);
-					console.log('page' + page);
-					console.log('top' + top);
-					console.log('newTop' + newTop);
-					console.log('height' + height);
 					if(top !== newTop){
 						//Add delay to each animation
 						delaySum += delay;
 						//Animate current with delay
 						setTimeout(() => {
+							console.log('newTop' + newTop);
+							console.log('ms' + milliseconds);
 							animate(current, 'top', newTop, milliseconds);
 						}, delaySum);
 					}

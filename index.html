@@ -67,6 +67,7 @@
 			}
 			h2{
 				font-size: 80px;
+				position: sticky;
 			}
 			p{
 				color : white;
@@ -363,9 +364,8 @@
 			//Set height for all sections
 			const sections = document.getElementsByTagName('section');
 			for (let j = 0; j < sections.length; ++j){
-				sections[j].style.filter = 'hue-rotate(' + j * 40 + 'deg)';
 				sections[j].style.height =
-					window.innerHeight - (sections.length - 1) * 50 + 'px';
+						window.innerHeight - sections.length * 50 + 'px';
 				sections[j].onclick = () => {
 					scrollTo(sections, j);
 				};

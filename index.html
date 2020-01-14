@@ -312,7 +312,7 @@
 				                      .getPropertyValue(property), 10);
 			}
 			function animate(object, property, end, milliseconds){
-				let t                                       = 0, delta                            = 1000 / milliseconds,
+				let t                                       = 0, delta = 1000 / milliseconds,
 				    start = getValue(object, property), way = start - end,
 				    interval;
 				if(delta > 124) delta = 124;
@@ -328,38 +328,37 @@
 				    newTop, interval, height, zIndex;
 				//Scrolls to a page in some milliseconds
 				interval = setInterval(() => {
-					if(i >= sections.length) clearInterval(interval);
-					current = sections[i];
-					//Get top of current
-					top = getValue(current, 'top');
-					//Get height of current
-					height = getValue(current, 'height');
-					//Calculate newTop
-					//____Top navigation
-					if(i < page){
-						newTop = (i + 1) * 50 - height;
-						zIndex = sections.length - 2 - i;
-					}
-					//____Bottom navigation
-					else if(i > page){
-						newTop =
-							window.innerHeight - (sections.length - i) * 50;
-						zIndex = i - 1;
-					}
-					//____Current page
-					else{
-						newTop = i * 50;
-						zIndex = 5;
-					}
-					//Animate current, if current has to be animated
-					if(top !== newTop){
-						//Add delay to each animation
-						//Animate current with delay
-						animate(current, 'top', newTop, milliseconds);
-						animate(current, 'left', 0, milliseconds);
-						current.style.zIndex = zIndex;
-					}
-					++i;
+					//Look for object that has to be animated
+					do{
+						if(i >= sections.length) clearInterval(interval);
+						current = sections[i];
+						//Get top of current
+						top = getValue(current, 'top');
+						//Get height of current
+						height = getValue(current, 'height');
+						//Calculate newTop
+						//____Top navigation
+						if(i < page){
+							newTop = (i + 1) * 50 - height;
+							zIndex = sections.length - 2 - i;
+						}
+						//____Bottom navigation
+						else if(i > page){
+							newTop =
+								window.innerHeight - (sections.length - i) * 50;
+							zIndex = i - 1;
+						}
+						//____Current page
+						else{
+							newTop = i * 50;
+							zIndex = 5;
+						}
+						++i;
+					} while(top === newTop);
+					//Animate current with delay
+					animate(current, 'top', newTop, milliseconds);
+					animate(current, 'left', 0, milliseconds);
+					current.style.zIndex = zIndex;
 				}, delay);
 			}
 			//Set height for all sections

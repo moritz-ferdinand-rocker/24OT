@@ -348,21 +348,19 @@
                             setTimeout(() => {
                                 animate(current, 'top', newTop, milliseconds);
                             }, delaySum);
-                        }
+						}
 				}
 			}
+
 			//Set height for all sections
 			const sections = document.getElementsByTagName('section');
-			for(let j = 0; j < sections.length; ++j){
+			for (let j = 0; j < sections.length; ++j) {
 				sections[j].style.height =
 						window.innerHeight - sections.length * 50 + 'px';
 			}
 			//Scroll initially to first section
-			window.onkeydown = (e) => {
-				if (e.keyCode === 69) {
-					scrollTo(sections, 0);
-				}
-			};
+			scrollTo(sections, 0);
+			}
 			//S_C_R_O_L_L
 			let oldTime = 0, page = 0;
 

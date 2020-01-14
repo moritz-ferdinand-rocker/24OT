@@ -344,7 +344,7 @@
                         }
                         //____Current page
                         else{
-	                        newTop = window.innerHeight / 2 - height / 2;
+	                        newTop = i * 50;
                         }
 					//Animate current, if current has to be animated
 					if(top !== newTop){
@@ -360,10 +360,10 @@
 
 			//Set height for all sections
 			const sections = document.getElementsByTagName('section');
-			for (let j = 0; j < sections.length; ++j) {
+			for (let j = 0; j < sections.length; ++j){
 				sections[j].style.height =
 					window.innerHeight - sections.length * 50 + 'px';
-				sections[j].onclick = (e) => {
+				sections[j].onclick = () => {
 					scrollTo(sections, j);
 				};
 			}

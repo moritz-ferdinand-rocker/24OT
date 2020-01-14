@@ -453,24 +453,25 @@
 				scroll(sections, recognize(e.deltaX, e.deltaY));
 			};
 			//DRAG
-			function drag(object, x, y){
+			function drag(object, topX, topY, deltaX, deltaY){
 				//Drag current section
-				object.style.top =
-					getValue(object, 'top') + (y - oldY) / 10 + 'px';
-				object.style.left =
-					getValue(object, 'left') + (x - oldX) / 10 + 'px';
+				object.style.top = topY + deltaY / 10 + 'px';
+				object.style.left = topX + deltaX / 10 + 'px';
 			}
 			//____T_O_U_C_H
-			let oldX, oldY;
+			let topX, topY, oldX, oldY;
 			window.ontouchstart = (e) => {
 				//Store location of touch start
+				topX = getValue(sections[page], 'top');
+				topY = getValue(sections[page], 'left');
 				oldX = e.touches[0].clientX;
 				oldY = e.touches[0].clientY;
 			};
 			window.ontouchmove = (e) => {
 				//Drag, if finger is moving
-				drag(sections[page], e.changedTouches[0].clientX,
-				     e.changedTouches[0].clientY);
+				drag(sections[page], topX, topY,
+				     e.changedTouches[0].clientX - oldX,
+				     e.changedTouches[0].clientY - oldY);
 			};
 			window.ontouchend = (e) => {
 				//Scroll, if finger releases

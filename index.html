@@ -383,18 +383,32 @@
 					return;
 				}
 				switch(keyCode){
+					case 33:
 					case 38:
 						//UP
 						if(page >= 1){
 							--page;
 						}
 						break;
+					case 34:
 					case 40:
 						//DOWN
 						if(page <= sections.length - 2){
 							++page;
 						}
 						break;
+					case 36:
+						//HOME
+						page = 0;
+						break;
+					case 35:
+						//END
+						page = sections.length - 1;
+						break;
+					default:
+						if(keyCode >= 49 && keyCode <= 54){
+							page = keyCode - 49;
+						}
 				}
 				scrollTo(sections, page);
 				oldTime = Date.now();

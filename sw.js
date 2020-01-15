@@ -5,6 +5,7 @@ self.addEventListener('install', (event) => {
 		return cache.addAll(['BTS.mp4', 'BTS-Beispiel.mp4', 'BTS-Beispiel3.mp4',
 		                     'Musikvideos.mp4', 'Narrativ.mp4', 'Showreel.mp4',
 		                     'Unternehmensfilm.mp4', 'index.html',
+		                     'https://24olivetrees.com/wip/index.html',
 		                     'manifest.webmanifest', 'platzhalter.png']);
 	});
 });

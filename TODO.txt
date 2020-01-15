@@ -1,3 +1,4 @@
 - Sticky header
 - background images
 - revert order for scroll up
+- replace getElement.... with querySelector

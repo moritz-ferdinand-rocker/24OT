@@ -1,4 +1,9 @@
 - Sticky header
 - background images
-- revert order for scroll up
+- revert order for scroll up   (?)
 - replace getElement.... with querySelector
+- imrpove zIndex
+- change fontSize
+- general slow down for inputs
+
+

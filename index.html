@@ -439,7 +439,7 @@
 			};
 			//L_I_S_T_E_N_E_R_S
 			//____M-O-U-S-E
-			//TODO: Mouse
+			window.on;
 			//H_O_V_E_R
 			document.getElementsByTagName('video').onmouseenter = (e) => {
 				const o = e.target;
@@ -541,6 +541,8 @@
 					keyUp = true;
 				}
 			};
+			//S_E_R_V_I_C_E___W_O_R_K_E_R
+			navigator.serviceWorker.register('sw.js');
 		</script>
 	</body>
 </html>

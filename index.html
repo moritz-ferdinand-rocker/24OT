@@ -384,7 +384,6 @@
 			//S_C_R_O_L_L
 			let oldTime = 0, page = 0;
 			function scroll(sections, keyCode){
-				let up = false, pageTemp;
 				if(Date.now() <= oldTime + 550){
 					return;
 				}
@@ -393,7 +392,6 @@
 					case 38:
 						//UP
 						if(page >= 1){
-							up = true;
 							--page;
 						}
 						break;
@@ -406,7 +404,6 @@
 						break;
 					case 36:
 						//HOME
-						up = true;
 						page = 0;
 						break;
 					case 35:
@@ -416,11 +413,9 @@
 					default:
 						if(keyCode >= 49 && keyCode <= 54){
 							pageTemp = keyCode - 49;
-							if(pageTemp < page) up = true;
 						}
 				}
-				scrollTo(up ? sections.reverse() : sections,
-				         up ? 5 - page : page);
+				scrollTo(sections, page);
 				oldTime = Date.now();
 			}
 			function animateBoxes(sections){

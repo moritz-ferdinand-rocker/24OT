@@ -33,7 +33,6 @@
 				left     : 0;
 				overflow : hidden;
 				position : fixed;
-				width    : 100%;
 			}
 			section > img{
 				height     : 100%;
@@ -362,11 +361,12 @@
 				}, delay);
 			}
 			//Set height for all sections
-			function updateHeight(sections){
+			function updateSize(sections){
 				for(let j = 0; j < sections.length; ++j){
 					animate(sections[j], 'height',
 					        window.innerHeight - (sections.length - 1) * 50,
 					        1000);
+					animate(sections[j], 'width', window.innerWidth, 1000);
 				}
 			}
 			const sections = document.getElementsByTagName('section');
@@ -378,7 +378,7 @@
 					page = j;
 				};
 			}
-			updateHeight(sections);
+			updateSize(sections);
 			//Scroll initially to first section
 			scrollTo(sections, 0);
 			//S_C_R_O_L_L
@@ -438,7 +438,7 @@
 			window.onresize = () => {
 				animateBoxes(sections);
 				scrollTo(sections, page);
-				updateHeight(sections);
+				updateSize(sections);
 			};
 			//L_I_S_T_E_N_E_R_S
 			//____M-O-U-S-E

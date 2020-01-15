@@ -327,8 +327,8 @@
 			}
 			//S_C_R_O_L_L___T_O
 			function scrollTo(sections, page){
-				let i = 0, milliseconds = 1000, delay = 200, current, top,
-				    newTop, interval, height, zIndex;
+				let i                                          = 0, milliseconds = 1000, delay          = 200, current, top,
+				    newTop, interval, height, zIndex, fontSize = 30;
 				//Scrolls to a page in some milliseconds
 				interval = setInterval(() => {
 					//Look for one object that has to be animated
@@ -355,12 +355,14 @@
 						else{
 							newTop = i * 50;
 							zIndex = 5;
+							fontSize = 15;
 						}
 						++i;
 					} while(top >= newTop - 1 && top <= newTop + 1);
 					//Animate current with delay
 					animate(current, 'top', newTop, milliseconds);
 					animate(current, 'left', 0, milliseconds);
+					animate(current, 'fontSize', fontSize, milliseconds);
 					current.style.zIndex = zIndex;
 				}, delay);
 			}

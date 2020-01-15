@@ -8,7 +8,7 @@ self.oninstall = (event) => {
 		                     'manifest.webmanifest', 'platzhalter.png']);
 	});
 };
-self.fetch((event) => {
+self.onfetch((event) => {
 	let request = event.request;
 	event.respondWith(caches.match(request).then((response) => {
 		return response || fetch(request).then((event) => {

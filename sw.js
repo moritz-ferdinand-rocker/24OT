@@ -11,7 +11,8 @@ self.addEventListener('install', (event) => {
 self.addEventListener('fetch', (event) => {
 	let request = event.request;
 	event.respondWith(caches.match(request).then((response) => {
-		return response || fetch(request).then((event) => {
+		if(response) response;
+		return fetch(request).then((reponse) => {
 			if(! response || response.status !== 200 || response.type !==
 			   'basic') return response;
 			caches.open(CACHE).then((cache) => {

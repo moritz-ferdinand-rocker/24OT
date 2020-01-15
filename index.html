@@ -69,11 +69,6 @@
 				font-size    : 20px;
 				writing-mode : vertical-rl;
 			}
-			h2{
-				font-size : 25px;
-				position  : sticky;
-				top       : 0;
-			}
 			p{
 				color : white;
 			}
@@ -270,7 +265,7 @@
 				</div>
 			</template>
 		</section>
-		I_M_P_R_E_S_S_U_M
+		<!-- I_M_P_R_E_S_S_U_M -->
 		<section>
 			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<h2>Impressum</h2>
@@ -362,7 +357,8 @@
 					//Animate current with delay
 					animate(current, 'top', newTop, milliseconds);
 					animate(current, 'left', 0, milliseconds);
-					animate(current, 'fontsize', fontSize, milliseconds);
+					animate(current.querySelector('h2'), 'fontSize', fontSize,
+					        milliseconds);
 					current.style.zIndex = zIndex;
 				}, delay);
 			}

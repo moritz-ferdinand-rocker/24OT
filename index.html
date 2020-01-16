@@ -326,8 +326,7 @@
 						top = getValue(current, 'top');
 						//Get height of current
 						height = getValue(current, 'height');
-						content =
-							current.querySelector('.content:first-of-type');
+						content = current.querySelector('.content').firstChild;
 						//Calculate newTop
 						//____Top navigation
 						if(i < page){

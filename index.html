@@ -326,13 +326,13 @@
 						top = getValue(current, 'top');
 						//Get height of current
 						height = getValue(current, 'height');
-						content = current.querySelector('.content').content;
+						//content = current.querySelector('.content').content;
 						//Calculate newTop
 						//____Top navigation
 						if(i < page){
 							newTop = (i + 1) * 50 - height;
 							zIndex = sections.length - 1 - i;
-							current.removeChild(content);
+							//current.removeChild(content);
 						}
 						//____Bottom navigation
 						else if(i > page){
@@ -345,15 +345,15 @@
 							newTop = i * 50;
 							zIndex = 0;
 							fontSize = 60;
-							current.appendChild(content);
+							//current.appendChild(content);
 						}
 						++i;
 					} while(top >= newTop - 1 && top <= newTop + 1);
 					//Animate current with delay
 					animate(current, 'top', newTop, milliseconds);
 					animate(current, 'left', 0, milliseconds);
-					let element = current.querySelector('h2');
-					animate(element, 'fontSize', fontSize, milliseconds);
+					let h2 = current.querySelector('h2');
+					animate(h2, 'fontSize', fontSize, milliseconds);
 					current.style.zIndex = zIndex;
 				}, delay);
 			}

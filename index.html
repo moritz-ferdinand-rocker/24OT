@@ -338,18 +338,18 @@
 						//____Top navigation
 						if(i < page){
 							newTop = (i + 1) * 50 - height;
-							zIndex = sections.length - 2 - i;
+							zIndex = sections.length - 1 - i;
 						}
 						//____Bottom navigation
 						else if(i > page){
 							newTop =
 								window.innerHeight - (sections.length - i) * 50;
-							zIndex = i - 1;
+							zIndex = i;
 						}
 						//____Current page
 						else{
 							newTop = i * 50;
-							zIndex = 5;
+							zIndex = 0;
 							fontSize = 60;
 						}
 						++i;

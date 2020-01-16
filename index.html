@@ -253,16 +253,7 @@
 			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<h2>Kontakt</h2>
 			<template>
-				<div class = 'box'>
-					<h3>Wir wollen SIe!</h3>
-					<img alt = 'Platzhalter' src = 'platzhalter.png'>
-					<template>
-						<p>Wir sind gerne für Anfragen aller Art und
-						   kostenfreien Beratungsgesprächen da. Kontaktieren Sie
-						   uns gerne per Mail oder Telefon!
-						</p>
-					</template>
-				</div>
+				<p>Test</p>
 			</template>
 		</section>
 		<!-- I_M_P_R_E_S_S_U_M -->
@@ -351,6 +342,9 @@
 							newTop = i * 50;
 							zIndex = 0;
 							fontSize = 60;
+							current.appendChild(
+								current.querySelector('template').content
+								       .cloneNode(true));
 						}
 						++i;
 					} while(top >= newTop - 1 && top <= newTop + 1);

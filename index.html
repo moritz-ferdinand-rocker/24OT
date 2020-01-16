@@ -35,6 +35,7 @@
 				position : fixed;
 			}
 			img{
+				filter     : grayscale(100%);
 				height     : 100%;
 				object-fit : cover;
 				position   : absolute;
@@ -42,8 +43,8 @@
 				transition : all 0.5s ease-in-out;
 				width      : 100%;
 			}
-			img:hover, img:focus{
-				filter : grayscale(100%);
+			img:hover{
+				filter : grayscale(0%);
 			}
 			video{
 				height     : 100%;
@@ -52,7 +53,7 @@
 			}
 			.box{
 				height   : 100%;
-				position : relative; /* ?? */
+				position : absolute; /* ?? */
 				top      : 0;
 			}
 			h1, h2, h3, p{
@@ -312,7 +313,7 @@
 			}
 			//S_C_R_O_L_L___T_O
 			function scrollTo(sections, page){
-				let i                                          = 0, milliseconds = 1000, delay = 200, current, top,
+				let i                                          = 0, milliseconds = 1000, delay          = 200, current, top,
 				    newTop, interval, height, zIndex, fontSize = 20, opacity;
 				//Scrolls to a page in some milliseconds
 				interval = setInterval(() => {
@@ -368,8 +369,8 @@
 			}
 			const sections = document.getElementsByTagName('section');
 			for(let j = 0; j < sections.length; ++j){
-				let imgs = sections[j].getElementsByTagName('img');
-				imgs[0].style.filter = 'hue-rotate(' + 40 * j + 'deg)';
+				sections[j].querySelector('img').style.filter =
+					'hue-rotate(' + 40 * j + 'deg)';
 				sections[j].onclick = () => {
 					scrollTo(sections, j);
 					page = j;

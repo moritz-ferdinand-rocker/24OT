@@ -88,18 +88,16 @@
 	<body>
 		<!--S_H_O_W_R_E_E_L-->
 		<section>
-			<img alt = 'Platzhalter' src = 'platzhalter.png'>
-			<h2>Showreel.</h2>
 			<div class = 'content'>
 				<video autoplay id = 'header-video' loop muted>
 					<source src = 'Videos/Showreel.mp4' type = 'video/mp4'>
 				</video>
 			</div>
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
+			<h2>Showreel.</h2>
 		</section>
 		<!--P_O_R_T_F_O_L_I_O-->
 		<section>
-			<img alt = 'Platzhalter' src = 'platzhalter.png'>
-			<h2>Portfolio</h2>
 			<div class = 'content'>
 				<div class = 'box'>
 					<img alt = 'Platzhalter' src = 'platzhalter.png'>
@@ -139,11 +137,11 @@
 					</div>
 				</div>
 			</div>
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
+			<h2>Portfolio</h2>
 		</section>
 		<!--W_I_R_ _S_I_N_D-->
 		<section>
-			<img alt = 'Platzhalter' src = 'platzhalter.png'>
-			<h2>Wir sind</h2>
 			<div class = 'content'>
 				<div class = 'box'>
 					<img alt = 'Platzhalter' src = 'platzhalter.png'>
@@ -204,11 +202,11 @@
 					</div>
 				</div>
 			</div>
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
+			<h2>Wir sind</h2>
 		</section>
 		<!--S_O_N_S_T_I_G_E_S-->
 		<section>
-			<img alt = 'Platzhalter' src = 'platzhalter.png'>
-			<h2>Sonstiges</h2>
 			<div class = 'content'>
 				<div class = 'box'>
 					<img alt = 'Platzhalter' src = 'platzhalter.png'>
@@ -248,19 +246,19 @@
 					</div>
 				</div>
 			</div>
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
+			<h2>Sonstiges</h2>
 		</section>
 		<!--K_O_N_T_A_K_T-->
 		<section>
-			<img alt = 'Platzhalter' src = 'platzhalter.png'>
-			<h2>Kontakt</h2>
 			<div class = 'content'>
 				<p>Test</p>
 			</div>
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
+			<h2>Kontakt</h2>
 		</section>
 		<!-- I_M_P_R_E_S_S_U_M -->
 		<section>
-			<img alt = 'Platzhalter' src = 'platzhalter.png'>
-			<h2>Impressum</h2>
 			<div class = 'content'>
 				<div class = 'box'>
 					<p>24OliveTrees MEDIA UG (haftungsbeschränkt)
@@ -290,6 +288,8 @@
 					</p>
 				</div>
 			</div>
+			<img alt = 'Platzhalter' src = 'platzhalter.png'>
+			<h2>Impressum</h2>
 		</section>
 		<script>
 			//A_N_I_M_A_T_E
@@ -302,7 +302,7 @@
 				                      .getPropertyValue(property), 10);
 			}
 			function animate(object, property, end, milliseconds){
-				let t                                       = 0, delta                            = 1000 / milliseconds,
+				let t                                       = 0, delta = 1000 / milliseconds,
 				    start = getValue(object, property), way = start - end,
 				    interval;
 				if(delta > 124) delta = 124;
@@ -314,8 +314,8 @@
 			}
 			//S_C_R_O_L_L___T_O
 			function scrollTo(sections, page){
-				let i                                          = 0, milliseconds = 1000, delay          = 200, current, top,
-				    newTop, interval, height, zIndex, fontSize = 20, content;
+				let i                                          = 0, milliseconds = 1000, delay = 200, current, top,
+				    newTop, interval, height, zIndex, fontSize = 20, opacity;
 				//Scrolls to a page in some milliseconds
 				interval = setInterval(() => {
 					//Look for one object that has to be animated
@@ -326,13 +326,13 @@
 						top = getValue(current, 'top');
 						//Get height of current
 						height = getValue(current, 'height');
-						//content = current.querySelector('.content').content;
+						//Get image
+						opacity = 0;
 						//Calculate newTop
 						//____Top navigation
 						if(i < page){
 							newTop = (i + 1) * 50 - height;
 							zIndex = sections.length - 1 - i;
-							//current.removeChild(content);
 						}
 						//____Bottom navigation
 						else if(i > page){
@@ -345,7 +345,7 @@
 							newTop = i * 50;
 							zIndex = 0;
 							fontSize = 60;
-							//current.appendChild(content);
+							opacity = 1;
 						}
 						++i;
 					} while(top >= newTop - 1 && top <= newTop + 1);
@@ -355,6 +355,8 @@
 					let h2 = current.querySelector('h2');
 					animate(h2, 'fontSize', fontSize, milliseconds);
 					current.style.zIndex = zIndex;
+					animate(current.querySelector('img'), 'opacity', opacity,
+					        milliseconds);
 				}, delay);
 			}
 			//Set height for all sections

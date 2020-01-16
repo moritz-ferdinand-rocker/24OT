@@ -80,6 +80,9 @@
 				filter    : brightness(100%);
 				transform : scale(1.1);
 			}
+			.content{
+				display : none;
+			}
 		</style>
 	</head>
 	<body>
@@ -87,67 +90,65 @@
 		<section>
 			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<h2>Showreel.</h2>
-			<template>
+			<div class = 'content'>
 				<video autoplay id = 'header-video' loop muted>
 					<source src = 'Videos/Showreel.mp4' type = 'video/mp4'>
 				</video>
-			</template>
+			</div>
 		</section>
 		<!--P_O_R_T_F_O_L_I_O-->
 		<section>
 			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<h2>Portfolio</h2>
-			<template>
+			<div class = 'content'>
 				<div class = 'box'>
-					<h3>Musikvideos</h3>
 					<img alt = 'Platzhalter' src = 'platzhalter.png'>
-					<template>
+					<h3>Musikvideos</h3>
+					<div class = 'content'>
 						<p>Hier gibts ein paar Beispiele.</p>
-					</template>
+					</div>
 				</div>
 				<div class = 'box'>
-					<img>
-					<template>
-						<video muted>
-							<source src = 'Videos/Unternehmensfilm.mp4'
-							        type = 'video/mp4'>
-						</video>
-						<h3>Unternehmensfilme</h3>
-						<h4>Image-.Messe-,Recruiting-</h4>
-						<h5>Wir machen den Film, den Ihr Unternehmen braucht.
-						</h5>
+					<video muted>
+						<source src = 'Videos/Unternehmensfilm.mp4'
+						        type = 'video/mp4'>
+					</video>
+					<h3>Unternehmensfilme</h3>
+					<div class = 'content'>
+						<p>Image-.Messe-,Recruiting-</p>
+						<p>Wir machen den Film, den Ihr Unternehmen braucht.
+						</p>
 						<p>Imagefilme sind aus der heutigen Welt nicht mehr
 						   wegzudenken. Es gibt keine bessere Möglichkeit, den
 						   Geist einer Firma darzustellen. Wir beraten Sie für
 						   Ihre Videoproduktion individuell.
 						</p>
-					</template>
+					</div>
 				</div>
 				<div class = 'box'>
 					<img alt = 'Platzhalter' src = 'platzhalter.png'>
-					<template>
+					<h3>Werbung.</h3>
+					<div class = 'content'>
 						<video muted>
 							<source src = 'Videos/Produktfilme%20-%20Werbung.mp4'
 							        type = 'video/mp4'>
 						</video>
-						<h3>Werbung/Produktfilme</h3>
-						<h4>Werbung.</h4>
-						<h5>Eine Hass-Liebe</h5>
+						<p>Eine Hass-Liebe</p>
 						<p>Viele hassen sie. Alle wollen sie. Wir machen sie.
 						</p>
-					</template>
+					</div>
 				</div>
-			</template>
+			</div>
 		</section>
 		<!--W_I_R_ _S_I_N_D-->
 		<section>
 			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<h2>Wir sind</h2>
-			<template>
+			<div class = 'content'>
 				<div class = 'box'>
-					<h3>Team</h3>
 					<img alt = 'Platzhalter' src = 'platzhalter.png'>
-					<template>
+					<h3>Team</h3>
+					<div class = 'content'>
 						<video muted>
 							<source src = 'Videos/Wir%20sind%20-%20Alle.mp4'
 							        type = 'video/mp4'>
@@ -160,70 +161,70 @@
 						    lernen Sie hier erstmal die kennen, die eh alles
 						    machen.
 						</p>
-					</template>
+					</div>
 				</div>
 				<div class = 'box'>
-					<h3>Paulo</h3>
 					<img alt = 'Platzhalter' src = 'platzhalter.png'>
-					<template>
+					<h3>Paulo</h3>
+					<div class = 'content'>
 						<video muted>
 							<source src = 'Videos/Wir%20sind%20-%20Paulo.mp4'
 							        type = 'video/mp4'>
 						</video>
-					</template>
+					</div>
 				</div>
 				<div class = 'box'>
-					<h3>Simon</h3>
 					<img alt = 'Platzhalter' src = 'platzhalter.png'>
-					<template>
+					<h3>Simon</h3>
+					<div class = 'content'>
 						<video muted>
 							<source src = 'Videos/Wir%20sind%20-%20Simon.mp4'
 							        type = 'video/mp4'>
 						</video>
-					</template>
+					</div>
 				</div>
 				<div class = 'box'>
-					<h3>Tilman</h3>
 					<img alt = 'Platzhalter' src = 'platzhalter.png'>
-					<template>
+					<h3>Tilman</h3>
+					<div class = 'content'>
 						<video muted>
 							<source src = 'Videos/Wir%20sind-%20Tilman.mp4'
 							        type = 'video/mp4'>
 						</video>
-					</template>
+					</div>
 				</div>
 				<div class = 'box'>
-					<h3>Moritz</h3>
 					<img alt = 'Platzhalter' src = 'platzhalter.png'>
-					<template>
+					<h3>Moritz</h3>
+					<div class = 'content'>
 						<video muted>
 							<source src = 'Videos/Wir%20sind-%20Moritz.mp4'
 							        type = 'video/mp4'>
 						</video>
-					</template>
+					</div>
 				</div>
-			</template>
+			</div>
 		</section>
-		<!--N_A_R_R_A_T_I_V-->
+		<!--S_O_N_S_T_I_G_E_S-->
 		<section>
 			<img alt = 'Platzhalter' src = 'platzhalter.png'>
-			<h2>Narrativ</h2>
-			<template>
+			<h2>Sonstiges</h2>
+			<div class = 'content'>
 				<div class = 'box'>
-					<h3>Film.</h3>
 					<img alt = 'Platzhalter' src = 'platzhalter.png'>
-					<template>
+					<h3>Narrativ</h3>
+					<div class = 'content'>
 						<video muted>
 							<source src = 'Videos/Narrativ.mp4'
 							        type = 'video/mp4'>
 						</video>
 						<p> Manches kompvart, manches unterstützt.</p>
-					</template>
+					</div>
 				</div>
 				<div class = 'box'>
-					<h3>Behind the scenes</h3>
 					<img alt = 'Platzhalter' src = 'platzhalter.png'>
-					<template>
+					<h3>Behind the scenes</h3>
+					<div class = 'content'>
 						<p>Um mit Bewegtbild zu verzaubern, müssen viele Opfer
 						   gebracht werden. Hier mehr dazu.
 						</p>
@@ -244,23 +245,23 @@
 								        type = 'video/mp4'>
 							</video>
 						</div>
-					</template>
+					</div>
 				</div>
-			</template>
+			</div>
 		</section>
 		<!--K_O_N_T_A_K_T-->
 		<section>
 			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<h2>Kontakt</h2>
-			<template>
+			<div class = 'content'>
 				<p>Test</p>
-			</template>
+			</div>
 		</section>
 		<!-- I_M_P_R_E_S_S_U_M -->
 		<section>
 			<img alt = 'Platzhalter' src = 'platzhalter.png'>
 			<h2>Impressum</h2>
-			<template>
+			<div class = 'content'>
 				<div class = 'box'>
 					<p>24OliveTrees MEDIA UG (haftungsbeschränkt)
 						<br/>
@@ -288,7 +289,7 @@
 						<br/>
 					</p>
 				</div>
-			</template>
+			</div>
 		</section>
 		<script>
 			//A_N_I_M_A_T_E

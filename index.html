@@ -302,7 +302,7 @@
 				                      .getPropertyValue(property), 10);
 			}
 			function animate(object, property, end, milliseconds){
-				let t                                       = 0, delta = 1000 / milliseconds,
+				let t                                       = 0, delta                            = 1000 / milliseconds,
 				    start = getValue(object, property), way = start - end,
 				    interval;
 				if(delta > 124) delta = 124;
@@ -314,8 +314,8 @@
 			}
 			//S_C_R_O_L_L___T_O
 			function scrollTo(sections, page){
-				let i                                          = 0, milliseconds                        = 1000, delay = 200, current, top,
-				    newTop, interval, height, zIndex, fontSize = 20;
+				let i                                          = 0, milliseconds = 1000, delay          = 200, current, top,
+				    newTop, interval, height, zIndex, fontSize = 20, content;
 				//Scrolls to a page in some milliseconds
 				interval = setInterval(() => {
 					//Look for one object that has to be animated
@@ -326,11 +326,13 @@
 						top = getValue(current, 'top');
 						//Get height of current
 						height = getValue(current, 'height');
+						content = current.querySelector('.content');
 						//Calculate newTop
 						//____Top navigation
 						if(i < page){
 							newTop = (i + 1) * 50 - height;
 							zIndex = sections.length - 1 - i;
+							current.removeChild(content);
 						}
 						//____Bottom navigation
 						else if(i > page){
@@ -343,9 +345,7 @@
 							newTop = i * 50;
 							zIndex = 0;
 							fontSize = 60;
-							current.appendChild(
-								current.querySelector('template').content
-								       .cloneNode(true));
+							current.appendChild(content);
 						}
 						++i;
 					} while(top >= newTop - 1 && top <= newTop + 1);
